@@ -4,7 +4,7 @@ import RealmSwift
 /// Instantiate a new Survey object, and then
 /// append it to the ``surveys`` collection to add it to the Item list.
 struct CreateSurveyView: View {
-    // The ``survey`` ObservedResults collection is the
+    // The ``surveys`` ObservedResults collection is the
     // entire list of Survey objects in the realm.
     @ObservedResults(Survey.self) var surveys
     // Create a new Realm Survey object.

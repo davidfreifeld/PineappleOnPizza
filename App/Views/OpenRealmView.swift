@@ -23,7 +23,7 @@ struct OpenRealmView: View {
             ProgressView("Waiting for user to log in...")
         case .open(let realm):
             // The realm has been opened and is ready for use.
-            // Show the Items view.
+            // Show the Surveys view.
             SurveysView(leadingBarButton: AnyView(LogoutButton()), user: user, showMySurveys: $showMySurveys, isInOfflineMode: $isInOfflineMode)
                 // showMySurveys toggles the creation of a subscription
                 // When it's toggled on, only the original subscription is shown -- "my_surveys".

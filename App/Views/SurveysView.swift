@@ -1,13 +1,13 @@
 import SwiftUI
 import RealmSwift
 
-/// Use views to see a list of all Surveys, add or delete Items, or logout.
+/// Use views to see a list of all Surveys, add or delete Surveys, or logout.
 struct SurveysView: View {
     var leadingBarButton: AnyView?
     // ObservedResults is a mutable collection; here it's
     // all of the Survey objects in the realm.
     // You can append or delete todos directly from the collection.
-    @ObservedResults(Survey.self) var item
+    @ObservedResults(Survey.self) var surveys
     @EnvironmentObject var errorHandler: ErrorHandler
 
     @State var questionText = ""
