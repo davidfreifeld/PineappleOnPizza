@@ -15,6 +15,8 @@ struct TallyResponseView: View {
     
     @Binding var isPresentingTallyResponseView: Bool
     
+    @Environment(\.realm) private var realm
+    
     var body: some View {
         List {
             Section(header: Text("Question")) {
@@ -23,9 +25,9 @@ struct TallyResponseView: View {
             Section(header: Text("Answers")) {
                 ForEach(survey.answers) { answer in
                     Button(answer.answerText) {
-                        answer.thaw()
+                        let thawedAnswer = answer.thaw()
                         try! realm.write {
-                            answer.currentVotes = answer.currentVotes + 1
+                            thawedAnswer!.currentVotes = thawedAnswer!.currentVotes + 1
                         }
                         isPresentingTallyResponseView = false
                     }

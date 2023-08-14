@@ -6,7 +6,7 @@ struct SurveysView: View {
     var leadingBarButton: AnyView?
     // ObservedResults is a mutable collection; here it's
     // all of the Survey objects in the realm.
-    // You can append or delete todos directly from the collection.
+    // You can append or delete surveys directly from the collection.
     @ObservedResults(Survey.self) var surveys
     @EnvironmentObject var errorHandler: ErrorHandler
 

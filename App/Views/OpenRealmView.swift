@@ -56,6 +56,7 @@ struct OpenRealmView: View {
                         showMySurveys = false
                     }
                 }
+                .environment(\.realm, realm)
         case .progress(let progress):
             // The realm is currently being downloaded from the server.
             // Show a progress view.
