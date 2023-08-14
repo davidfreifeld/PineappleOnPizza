@@ -5,7 +5,7 @@ struct SurveyRow: View {
     @ObservedRealmObject var survey: Survey
     
     var body: some View {
-        NavigationLink(destination: SurveyDetail(survey: survey)) {
+        NavigationLink(destination: SurveyDetailView(survey: survey)) {
             Text(survey.questionText)
             Spacer()
             if survey.isComplete {

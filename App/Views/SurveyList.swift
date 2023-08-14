@@ -11,10 +11,16 @@ struct SurveyList: View {
     var body: some View {
         VStack {
             List {
-                ForEach(surveys) { survey in
-                    SurveyRow(survey: survey)
+                Section("Open Surveys") {
+                    ForEach(surveys.where { !$0.isComplete }) { survey in
+                        SurveyRow(survey: survey)
+                    }
                 }
-                .onDelete(perform: $surveys.remove)
+                Section("Completed Surveys") {
+                    ForEach(surveys.where { $0.isComplete }) { survey in
+                        SurveyRow(survey: survey)
+                    }
+                }
             }
             .listStyle(InsetListStyle())
         }

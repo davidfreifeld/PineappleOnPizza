@@ -13,6 +13,12 @@ class Survey: Object, ObjectKeyIdentifiable {
     @Persisted var questionText: String
     @Persisted var answers: List<Answer>
     @Persisted var isComplete = false
+    
+    var totalVotes: Int {
+        self.answers.reduce(0, { runningSum, nextAnswer in
+            runningSum + nextAnswer.currentVotes
+        })
+    }
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {

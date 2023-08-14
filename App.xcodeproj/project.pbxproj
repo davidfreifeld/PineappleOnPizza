@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000C72E12A870E130064729E /* SurveyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72DE2A870E130064729E /* SurveyRow.swift */; };
-		000C72E22A870E130064729E /* SurveyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72DF2A870E130064729E /* SurveyDetail.swift */; };
+		000C72E22A870E130064729E /* SurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72DF2A870E130064729E /* SurveyDetailView.swift */; };
 		000C72E32A870E130064729E /* SurveyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E02A870E130064729E /* SurveyList.swift */; };
 		000C72E52A871A440064729E /* TallyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E42A871A440064729E /* TallyResponseView.swift */; };
 		68D3DF5A2942677E005209D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		000C72DE2A870E130064729E /* SurveyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyRow.swift; sourceTree = "<group>"; };
-		000C72DF2A870E130064729E /* SurveyDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyDetail.swift; sourceTree = "<group>"; };
+		000C72DF2A870E130064729E /* SurveyDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyDetailView.swift; sourceTree = "<group>"; };
 		000C72E02A870E130064729E /* SurveyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyList.swift; sourceTree = "<group>"; };
 		000C72E42A871A440064729E /* TallyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyResponseView.swift; sourceTree = "<group>"; };
 		68D3DF592942677E005209D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -107,15 +107,15 @@
 			isa = PBXGroup;
 			children = (
 				913D464C2770E46800ABE7D3 /* ContentView.swift */,
-				91DF3EE927AAE18F0020D937 /* ErrorView.swift */,
+				917097DD27A05F0000F1D65B /* OpenRealmView.swift */,
 				913D46612770F0C600ABE7D3 /* LoginView.swift */,
 				917097DB27A05EBC00F1D65B /* LogoutButton.swift */,
-				913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */,
-				000C72DF2A870E130064729E /* SurveyDetail.swift */,
+				91DF3EE927AAE18F0020D937 /* ErrorView.swift */,
+				917097E327A05F7E00F1D65B /* SurveysView.swift */,
 				000C72E02A870E130064729E /* SurveyList.swift */,
 				000C72DE2A870E130064729E /* SurveyRow.swift */,
-				917097DD27A05F0000F1D65B /* OpenRealmView.swift */,
-				917097E327A05F7E00F1D65B /* SurveysView.swift */,
+				913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */,
+				000C72DF2A870E130064729E /* SurveyDetailView.swift */,
 				000C72E42A871A440064729E /* TallyResponseView.swift */,
 			);
 			path = Views;
@@ -204,7 +204,7 @@
 				913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */,
 				000C72E12A870E130064729E /* SurveyRow.swift in Sources */,
 				917097DC27A05EBC00F1D65B /* LogoutButton.swift in Sources */,
-				000C72E22A870E130064729E /* SurveyDetail.swift in Sources */,
+				000C72E22A870E130064729E /* SurveyDetailView.swift in Sources */,
 				913D464D2770E46800ABE7D3 /* ContentView.swift in Sources */,
 				91DF3EEA27AAE18F0020D937 /* ErrorView.swift in Sources */,
 				000C72E52A871A440064729E /* TallyResponseView.swift in Sources */,
