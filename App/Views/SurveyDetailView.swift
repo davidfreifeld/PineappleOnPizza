@@ -8,6 +8,7 @@ struct SurveyDetailView: View {
     @ObservedRealmObject var survey: Survey
 
     @State private var isPresentingTallyResponseView = false
+    @State private var isPresentingPredictionView = false
     
     var body: some View {
         List {
@@ -37,21 +38,21 @@ struct SurveyDetailView: View {
                 }
             }
             Button(action: {
-
+                isPresentingPredictionView = true
             }) {
                 HStack {
                     Spacer()
-                    Text("Set Prediction")
+                    Text("Set My Prediction")
                     Spacer()
                 }
             }
-                .disabled(survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }))
+            .disabled(survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }))
             Button(action: {
 
             }) {
                 HStack {
                     Spacer()
-                    Text("View Prediction")
+                    Text("View My Prediction")
                     Spacer()
                 }
             }
@@ -79,6 +80,11 @@ struct SurveyDetailView: View {
         .sheet(isPresented: $isPresentingTallyResponseView) {
             NavigationView {
                 TallyResponseView(survey: survey, isPresentingTallyResponseView: $isPresentingTallyResponseView)
+            }
+        }
+        .sheet(isPresented: $isPresentingPredictionView) {
+            NavigationView {
+                PredictionView(survey: survey, isPresentingPredictionView: $isPresentingPredictionView)
             }
         }
     }
