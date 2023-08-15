@@ -14,7 +14,6 @@ struct SurveysView: View {
     @State var user: User
     @State var isInCreateSurveyView = false
     @State var isInJoinSurveyView = false
-//    @Binding var showMySurveys: Bool
 
     var body: some View {
         NavigationView {
@@ -25,7 +24,6 @@ struct SurveysView: View {
                     JoinSurveyView(isInJoinSurveyView: $isInJoinSurveyView)
                 }
                 else {
-//                    Toggle("Show Only My Surveys", isOn: $showMySurveys).padding()
                     SurveyList()
                 }
             }
