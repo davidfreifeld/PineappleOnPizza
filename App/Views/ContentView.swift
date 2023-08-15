@@ -9,7 +9,7 @@ struct ContentView: View {
         if let user = app.currentUser {
             // Setup configuraton so user initially subscribes to their own tasks
             let config = user.flexibleSyncConfiguration(initialSubscriptions: { subs in
-                subs.remove(named: Constants.allSurveys)
+//                subs.remove(named: Constants.allSurveys)
                 if let _ = subs.first(named: Constants.mySurveys) {
                     // Existing subscription found - do nothing
                     return

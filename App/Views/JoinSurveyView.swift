@@ -4,7 +4,7 @@ import RealmSwift
 /// Show a detail view of a Survey. User can edit the summary or mark the Survey complete.
 struct JoinSurveyView: View {
     @State private var surveyCode: String = ""
-    @State private var isPresentingJoinSurveyView = false
+    @Binding var isInJoinSurveyView: Bool
 
     @ObservedResults(Survey.self) var surveys
     
@@ -24,7 +24,7 @@ struct JoinSurveyView: View {
                     try! realm.write {
                         thawedSurvey!.users.append(app.currentUser!.id)
                     }
-                    isPresentingJoinSurveyView = false
+                    isInJoinSurveyView = false
                 }) {
                     HStack {
                         Spacer()
@@ -37,7 +37,7 @@ struct JoinSurveyView: View {
                     // append the new object we created to the
                     // list, so we set the ``isInCreateSurveyView``
                     // value to false to return to the SurveysView.
-                    isPresentingJoinSurveyView = false
+                    isInJoinSurveyView = false
                 }) {
                     HStack {
                         Spacer()

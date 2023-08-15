@@ -119,10 +119,10 @@
 				000C72E02A870E130064729E /* SurveyList.swift */,
 				000C72DE2A870E130064729E /* SurveyRow.swift */,
 				913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */,
+				000C72EA2A8B29900064729E /* JoinSurveyView.swift */,
 				000C72DF2A870E130064729E /* SurveyDetailView.swift */,
 				000C72E42A871A440064729E /* TallyResponseView.swift */,
 				000C72E82A8ACD810064729E /* PredictionView.swift */,
-				000C72EA2A8B29900064729E /* JoinSurveyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
