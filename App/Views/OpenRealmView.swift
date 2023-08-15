@@ -24,7 +24,7 @@ struct OpenRealmView: View {
         case .open(let realm):
             // The realm has been opened and is ready for use.
             // Show the Surveys view.
-            SurveysView(leadingBarButton: AnyView(LogoutButton()), user: user, showMySurveys: $showMySurveys, isInOfflineMode: $isInOfflineMode)
+            SurveysView(leadingBarButton: AnyView(LogoutButton()), user: user, showMySurveys: $showMySurveys/*, isInOfflineMode: $isInOfflineMode*/)
                 // showMySurveys toggles the creation of a subscription
                 // When it's toggled on, only the original subscription is shown -- "my_surveys".
                 // When it's toggled off, *all* surveys are downloaded to the
@@ -45,10 +45,10 @@ struct OpenRealmView: View {
                 // While sync is not available, items can still be written and queried.
                 // When sync is resumed, items created or updated offline will upload to
                 // the server and changes from the server or other devices will be downloaded to the client.
-                .onChange(of: isInOfflineMode) { newValue in
-                    let syncSession = realm.syncSession!
-                    newValue ? syncSession.suspend() : syncSession.resume()
-                }
+//                .onChange(of: isInOfflineMode) { newValue in
+//                    let syncSession = realm.syncSession!
+//                    newValue ? syncSession.suspend() : syncSession.resume()
+//                }
                 .onAppear {
                     if let _ = realm.subscriptions.first(named: Constants.allSurveys) {
                         // The client was subscribed to all items from a previous
