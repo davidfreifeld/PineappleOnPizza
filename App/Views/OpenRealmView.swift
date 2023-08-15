@@ -7,7 +7,6 @@ struct OpenRealmView: View {
     // We must pass the user, so we can set the user.id when we create Item objects
     @State var user: User
     @State var showMySurveys = true
-    @State var isInOfflineMode = false
     // Configuration used to open the realm.
     @Environment(\.realmConfiguration) private var config
 
@@ -41,14 +40,6 @@ struct OpenRealmView: View {
                         }
                     }
                 }
-                // isInOfflineMode simulates a situation with no internet connection.
-                // While sync is not available, items can still be written and queried.
-                // When sync is resumed, items created or updated offline will upload to
-                // the server and changes from the server or other devices will be downloaded to the client.
-//                .onChange(of: isInOfflineMode) { newValue in
-//                    let syncSession = realm.syncSession!
-//                    newValue ? syncSession.suspend() : syncSession.resume()
-//                }
                 .onAppear {
                     if let _ = realm.subscriptions.first(named: Constants.allSurveys) {
                         // The client was subscribed to all items from a previous

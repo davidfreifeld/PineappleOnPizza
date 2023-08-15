@@ -13,64 +13,34 @@ struct SurveysView: View {
     @State var questionText = ""
     @State var user: User
     @State var isInCreateSurveyView = false
-//    @State var showOfflineNote = false
     @Binding var showMySurveys: Bool
-//    @Binding var isInOfflineMode: Bool
 
     var body: some View {
         NavigationView {
-//            ZStack {
-                VStack {
-                    if isInCreateSurveyView {
-                        CreateSurveyView(isInCreateSurveyView: $isInCreateSurveyView, user: user)
-                    }
-                    else {
-                        Toggle("Show Only My Surveys", isOn: $showMySurveys).padding()
-                        SurveyList()
-                    }
-                    NavigationLink(destination: JoinSurveyView()) {
-                        HStack {
-                            Spacer()
-                            Text("Join Existing Survey")
-                            Spacer()
-                        }
+            VStack {
+                if isInCreateSurveyView {
+                    CreateSurveyView(isInCreateSurveyView: $isInCreateSurveyView, user: user)
+                }
+                else {
+                    Toggle("Show Only My Surveys", isOn: $showMySurveys).padding()
+                    SurveyList()
+                }
+                NavigationLink(destination: JoinSurveyView()) {
+                    HStack {
+                        Spacer()
+                        Text("Join Existing Survey")
+                        Spacer()
                     }
                 }
-                .navigationBarItems(leading: self.leadingBarButton,
-                                    trailing: HStack {
-//                    Button {
-//                        if !isInOfflineMode {
-//                            showOfflineNote = true
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                                self.showOfflineNote = false
-//                            }
-//                        }
-//                        isInOfflineMode = !isInOfflineMode
-//
-//                    } label: {
-//                        isInOfflineMode ? Image(systemName: "wifi.slash") : Image(systemName: "wifi")
-//                    }
-                    Button {
-                        isInCreateSurveyView = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                })
-//                if showOfflineNote {
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .foregroundColor(Color(UIColor.lightGray))
-//                        .frame(width: 250, height: 150, alignment: .bottom)
-//                        .overlay(
-//                            VStack {
-//                                Text("Now 'Offline'").font(.largeTitle)
-//                                Text("Switching subscriptions does not affect Realm data when sync is offline").font(.body)
-//                            }
-//                            .padding()
-//                            .multilineTextAlignment(.center)
-//
-//                        )
-//                }
-//            }
+            }
+            .navigationBarItems(leading: self.leadingBarButton,
+                                trailing: HStack {
+                Button {
+                    isInCreateSurveyView = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            })
         }
     }
 }
