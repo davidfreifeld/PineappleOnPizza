@@ -28,6 +28,13 @@ struct SurveysView: View {
                         Toggle("Show Only My Surveys", isOn: $showMySurveys).padding()
                         SurveyList()
                     }
+                    NavigationLink(destination: JoinSurveyView()) {
+                        HStack {
+                            Spacer()
+                            Text("Join Existing Survey")
+                            Spacer()
+                        }
+                    }
                 }
                 .navigationBarItems(leading: self.leadingBarButton,
                                     trailing: HStack {

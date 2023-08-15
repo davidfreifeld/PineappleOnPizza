@@ -42,21 +42,10 @@ struct SurveyDetailView: View {
             }) {
                 HStack {
                     Spacer()
-                    Text("Set My Prediction")
+                    Text("Set/View Prediction")
                     Spacer()
                 }
             }
-            .disabled(survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }))
-            Button(action: {
-
-            }) {
-                HStack {
-                    Spacer()
-                    Text("View My Prediction")
-                    Spacer()
-                }
-            }
-            .disabled(!survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }))
             Section {
                 Button(action: {
                     isPresentingTallyResponseView = true
@@ -75,6 +64,9 @@ struct SurveyDetailView: View {
                 }
                 .disabled(survey.owner_id != app.currentUser?.id)
             }
+            Section {
+                Text("Survey Code: \(survey.code)")
+            }
         }
         .navigationBarTitle("Survey", displayMode: .inline)
         .sheet(isPresented: $isPresentingTallyResponseView) {
@@ -84,7 +76,7 @@ struct SurveyDetailView: View {
         }
         .sheet(isPresented: $isPresentingPredictionView) {
             NavigationView {
-                PredictionView(survey: survey, isPresentingPredictionView: $isPresentingPredictionView)
+                PredictionView(survey: survey, userHasPrediction: survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }), isPresentingPredictionView: $isPresentingPredictionView)
             }
         }
     }

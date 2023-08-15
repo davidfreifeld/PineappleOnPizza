@@ -11,14 +11,17 @@ import RealmSwift
 struct PredictionView: View {
     @ObservedRealmObject var survey: Survey
     
+    let userHasPrediction: Bool
+    
     @State var predictions: [Double]
     
     @Binding var isPresentingPredictionView: Bool
     
     @Environment(\.realm) private var realm
     
-    init(survey: Survey, isPresentingPredictionView: Binding<Bool>) {
+    init(survey: Survey, userHasPrediction: Bool, isPresentingPredictionView: Binding<Bool>) {
         self.survey = survey
+        self.userHasPrediction = userHasPrediction
         self._isPresentingPredictionView = isPresentingPredictionView
         
         // initialize all the predictions to be equal
@@ -35,7 +38,7 @@ struct PredictionView: View {
             }
             Section(header: Text("Answers")) {
                 // This section is for setting a prediction
-                if !survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }) {
+                if !userHasPrediction {
                     ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
                         Text(survey.answers[answerIndex].answerText)
                         HStack {
@@ -52,20 +55,20 @@ struct PredictionView: View {
                         Text("\(Int(predictions.reduce(0, +)))%")
                     }
                 }
-//                // This is to view the prediction, that's already been set
-//                else {
-//                    ForEach(0..<survey.answers.count) { answerIndex in
-//                        HStack {
-//                            ProgressView(value: Double() / Double(100)) {
-//                                HStack {
-//                                    Text(survey.answers[answerIndex].answerText)
-//                                    Spacer()
-//                                    Text("\(Int(Double()))%")
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
+                // This is to view the prediction, that's already been set
+                else {
+                    ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
+                        HStack {
+                            ProgressView(value: Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue) / Double(100)) {
+                                HStack {
+                                    Text(survey.answers[answerIndex].answerText)
+                                    Spacer()
+                                    Text("\(Int(Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue)))%")
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         .toolbar {
@@ -74,7 +77,6 @@ struct PredictionView: View {
                     isPresentingPredictionView = false
                 }
             }
-//            if !model.hasUserSetPrediction(surveyId: surveyId) {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Submit") {
                     for answerIndex in 0..<survey.answers.count {
@@ -91,7 +93,7 @@ struct PredictionView: View {
                     }
                     isPresentingPredictionView = false
                 }
-//                .disabled(predictions.values.reduce(0, +) != 100)
+                .disabled(predictions.reduce(0, +) != 100 || userHasPrediction)
             }
         }
         .navigationTitle("Survey Prediction")

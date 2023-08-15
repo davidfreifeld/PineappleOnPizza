@@ -17,6 +17,11 @@ struct CreateSurveyView: View {
     @State var questionText = ""
     @State var answerText = ""
 
+    func randomString() -> String {
+      let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<6).map{ _ in letters.randomElement()! })
+    }
+    
     var body: some View {
         Form {
             Section(header: Text("Survey Question")) {
@@ -64,6 +69,8 @@ struct CreateSurveyView: View {
                         answer.answerText = answerText
                         newSurvey.answers.append(answer)
                     }
+                    newSurvey.code = randomString()
+                    newSurvey.users.append(user.id)
                     // Appending the new Survey object to the ``surveys``
                     // ObservedResults collection adds it to the
                     // realm in an implicit write.
