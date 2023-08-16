@@ -7,16 +7,13 @@ struct ContentView: View {
 
     var body: some View {
         if let user = app.currentUser {
-            // Setup configuraton so user initially subscribes to their own tasks
             let config = user.flexibleSyncConfiguration(initialSubscriptions: { subs in
-                if let _ = subs.first(named: Constants.mySurveys) {
+                if let _ = subs.first(named: Constants.allSurveys) {
                     // Existing subscription found - do nothing
                     return
                 } else {
                     // No subscription - create it
-                    subs.append(QuerySubscription<Survey>(name: Constants.mySurveys) {
-                        $0.owner_id == user.id
-                    })
+                    subs.append(QuerySubscription<Survey>(name: Constants.allSurveys))
                 }
             })
             OpenRealmView(user: user)

@@ -3,6 +3,7 @@ import RealmSwift
 
 /// View a list of all Surveys in the realm. User can swipe to delete Items.
 struct SurveyList: View {
+    @State var showOpenSurveys: Bool
     // ObservedResults is a collection of all Survey objects in the realm.
     // Deleting objects from the observed collection
     // deletes them from the realm.
@@ -11,19 +12,18 @@ struct SurveyList: View {
     var body: some View {
         VStack {
             List {
-                Section("Open Surveys") {
-                    ForEach(surveys.where { !$0.isComplete }) { survey in
+                if showOpenSurveys {
+                    ForEach(surveys.where { !$0.isComplete && $0.users.contains(app.currentUser!.id) }) { survey in
+                        SurveyRow(survey: survey)
+                    }
+                } else {
+                    ForEach(surveys.where { $0.isComplete && $0.users.contains(app.currentUser!.id) }) { survey in
                         SurveyRow(survey: survey)
                     }
                 }
-                Section("Completed Surveys") {
-                    ForEach(surveys.where { $0.isComplete }) { survey in
-                        SurveyRow(survey: survey)
-                    }
-                }
+                
             }
-            .listStyle(InsetListStyle())
+//            .listStyle(InsetListStyle())
         }
-        .navigationBarTitle("Surveys", displayMode: .inline)
     }
 }

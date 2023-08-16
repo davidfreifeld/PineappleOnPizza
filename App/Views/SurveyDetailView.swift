@@ -68,7 +68,7 @@ struct SurveyDetailView: View {
                 Text("Survey Code: \(survey.code)")
             }
         }
-        .navigationBarTitle("Survey", displayMode: .inline)
+        .navigationBarTitle("Survey"/*, displayMode: .inline*/)
         .sheet(isPresented: $isPresentingTallyResponseView) {
             NavigationView {
                 TallyResponseView(survey: survey, isPresentingTallyResponseView: $isPresentingTallyResponseView)

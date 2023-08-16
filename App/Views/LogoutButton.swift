@@ -11,7 +11,7 @@ struct LogoutButton: View {
         if isLoggingOut {
             ProgressView()
         }
-        Button("Log Out") {
+        Button {
             guard let user = app.currentUser else {
                 return
             }
@@ -22,6 +22,8 @@ struct LogoutButton: View {
                 // that the currentUser has changed. Nothing more to do here.
                 isLoggingOut = false
             }
+        } label: {
+            Image(systemName: "rectangle.portrait.and.arrow.right")
         }.disabled(app.currentUser == nil || isLoggingOut)
         // Show an alert if there is an error during logout
         .alert(item: $errorMessage) { errorMessage in
