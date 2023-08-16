@@ -21,13 +21,9 @@ struct OpenRealmView: View {
             ProgressView("Waiting for user to log in...")
         case .open(let realm):
             // The realm has been opened and is ready for use.
-            // Show the Surveys view.
-//            SurveysView(leadingBarButton: AnyView(LogoutButton()), user: user)
-//                .environment(\.realm, realm)
-            
+            // Show the Main view.
             MainView(leadingBarButton: AnyView(LogoutButton()), user: user)
                 .environment(\.realm, realm)
-            
         case .progress(let progress):
             // The realm is currently being downloaded from the server.
             // Show a progress view.

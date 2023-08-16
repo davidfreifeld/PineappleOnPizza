@@ -2,7 +2,7 @@ import SwiftUI
 import RealmSwift
 
 /// View a list of all Surveys in the realm. User can swipe to delete Items.
-struct CompletedSurveyList: View {
+struct SurveyList: View {
     // ObservedResults is a collection of all Survey objects in the realm.
     // Deleting objects from the observed collection
     // deletes them from the realm.
@@ -10,8 +10,15 @@ struct CompletedSurveyList: View {
     
     var body: some View {
         List {
-            ForEach(surveys.where { $0.isComplete }) { survey in
-                SurveyRow(survey: survey)
+            Section("Open Surveys") {
+                ForEach(surveys.where { !$0.isComplete }) { survey in
+                    SurveyRow(survey: survey)
+                }
+            }
+            Section("Completed Surveys") {
+                ForEach(surveys.where { $0.isComplete }) { survey in
+                    SurveyRow(survey: survey)
+                }
             }
         }
     }
