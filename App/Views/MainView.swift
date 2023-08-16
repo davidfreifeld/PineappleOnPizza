@@ -31,18 +31,18 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            TabView(selection: $selectedTab) {
-                SurveyList(showOpenSurveys: true)
+//            TabView(selection: $selectedTab) {
+                OpenSurveyList()
                     .tabItem {
                         Label("Open Surveys", systemImage: "checklist.unchecked") //"rectangle.and.pencil.and.ellipsis"
                     }
                     .tag(Tab.openSurveys)
-                SurveyList(showOpenSurveys: false)
-                    .tabItem {
-                        Label("Completed Surveys", systemImage: "checklist.checked")
-                    }
-                    .tag(Tab.completedSurveys)
-            }
+//                CompletedSurveyList()
+//                    .tabItem {
+//                        Label("Completed Surveys", systemImage: "checklist.checked")
+//                    }
+//                    .tag(Tab.completedSurveys)
+//            }
             .navigationBarTitle(selectedTab.title/*, displayMode: .inline*/)
             .navigationBarItems(leading: self.leadingBarButton,
                                 trailing: HStack {
