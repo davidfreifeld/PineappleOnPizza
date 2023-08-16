@@ -12,7 +12,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     @Persisted var owner_id: String
     @Persisted var questionText: String
     @Persisted var answers: List<Answer>
-    @Persisted var isComplete = false
+    @Persisted var status: Status
     @Persisted var code: String
     @Persisted var users: List<String>
     
@@ -20,6 +20,15 @@ class Survey: Object, ObjectKeyIdentifiable {
         self.answers.reduce(0, { runningSum, nextAnswer in
             runningSum + nextAnswer.currentVotes
         })
+    }
+    
+    func areAllPredictionsIn() -> Bool {
+        for user in users {
+            if !self.answers[0].predictions.contains(where: { $0.user_id == user }) {
+                return false
+            }
+        }
+        return true
     }
 }
 
@@ -33,3 +42,4 @@ class Prediction: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var user_id: String
     @Persisted var predictionValue: Double
 }
+

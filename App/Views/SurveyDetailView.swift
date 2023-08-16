@@ -10,6 +10,8 @@ struct SurveyDetailView: View {
     @State private var isPresentingTallyResponseView = false
     @State private var isPresentingPredictionView = false
     
+    @Environment(\.realm) var realm
+    
     var body: some View {
         List {
             // TODO: Edit Survey?
@@ -20,16 +22,20 @@ struct SurveyDetailView: View {
             }
             Section(header: Text("Answers")) {
                 ForEach(survey.answers) { answer in
-                    if survey.isComplete {
-                        ProgressView(value: Double(answer.currentVotes) / Double(survey.totalVotes)) {
+                    if survey.status == Status.completed {
+                        if survey.totalVotes > 0 {
+                            ProgressView(value: Double(answer.currentVotes) / Double(survey.totalVotes)) {
+                                HStack {
+                                    Text(answer.answerText)
+                                    Spacer()
+                                    Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
+                                }
+                            }
+                        } else {
                             HStack {
                                 Text(answer.answerText)
                                 Spacer()
-                                if survey.totalVotes > 0 {
-                                    Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
-                                } else {
-                                    Text("No votes")
-                                }
+                                Text("No votes")
                             }
                         }
                     } else {
@@ -37,16 +43,17 @@ struct SurveyDetailView: View {
                     }
                 }
             }
-            Button(action: {
-                isPresentingPredictionView = true
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Set/View Prediction")
-                    Spacer()
+            Section("User Actions") {
+                Button(action: {
+                    isPresentingPredictionView = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Set Prediction")
+                        Spacer()
+                    }
                 }
-            }
-            Section {
+                .disabled(survey.status != Status.new || survey.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id }))
                 Button(action: {
                     isPresentingTallyResponseView = true
                 }) {
@@ -56,19 +63,38 @@ struct SurveyDetailView: View {
                         Spacer()
                     }
                 }
-                .disabled(survey.isComplete)
+                .disabled(survey.status != Status.open)
             }
-            Section {
-                Toggle(isOn: $survey.isComplete) {
-                    Text("Complete")
+            Section("Owner Actions") {
+                Button(action: {
+                    let thawedSurvey = survey.thaw()
+                    try! realm.write {
+                        thawedSurvey!.status = Status.open
+                    }
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Open Survey")
+                        Spacer()
+                    }
                 }
-                .disabled(survey.owner_id != app.currentUser?.id)
-            }
-            Section {
-                Text("Survey Code: \(survey.code)")
+                .disabled(survey.owner_id != app.currentUser?.id || survey.status != Status.new || !survey.areAllPredictionsIn())
+                Button(action: {
+                    let thawedSurvey = survey.thaw()
+                    try! realm.write {
+                        thawedSurvey!.status = Status.completed
+                    }
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Complete Survey")
+                        Spacer()
+                    }
+                }
+                .disabled(survey.owner_id != app.currentUser?.id || survey.status != Status.open)
             }
         }
-        .navigationBarTitle("Survey"/*, displayMode: .inline*/)
+        .navigationBarTitle("Survey \(survey.code)"/*, displayMode: .inline*/)
         .sheet(isPresented: $isPresentingTallyResponseView) {
             NavigationView {
                 TallyResponseView(survey: survey, isPresentingTallyResponseView: $isPresentingTallyResponseView)

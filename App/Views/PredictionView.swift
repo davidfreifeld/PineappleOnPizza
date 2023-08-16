@@ -38,7 +38,7 @@ struct PredictionView: View {
             }
             Section(header: Text("Answers")) {
                 // This section is for setting a prediction
-                if !userHasPrediction {
+//                if !userHasPrediction {
                     ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
                         Text(survey.answers[answerIndex].answerText)
                         HStack {
@@ -54,21 +54,21 @@ struct PredictionView: View {
                         Spacer()
                         Text("\(Int(predictions.reduce(0, +)))%")
                     }
-                }
-                // This is to view the prediction, that's already been set
-                else {
-                    ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
-                        HStack {
-                            ProgressView(value: Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue) / Double(100)) {
-                                HStack {
-                                    Text(survey.answers[answerIndex].answerText)
-                                    Spacer()
-                                    Text("\(Int(Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue)))%")
-                                }
-                            }
-                        }
-                    }
-                }
+//                }
+//                // This is to view the prediction, that's already been set
+//                else {
+//                    ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
+//                        HStack {
+//                            ProgressView(value: Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue) / Double(100)) {
+//                                HStack {
+//                                    Text(survey.answers[answerIndex].answerText)
+//                                    Spacer()
+//                                    Text("\(Int(Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue)))%")
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
         .toolbar {

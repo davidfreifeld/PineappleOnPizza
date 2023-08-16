@@ -71,6 +71,7 @@ struct CreateSurveyView: View {
                     }
                     newSurvey.code = randomString()
                     newSurvey.users.append(user.id)
+                    newSurvey.status = Status.new
                     // Appending the new Survey object to the ``surveys``
                     // ObservedResults collection adds it to the
                     // realm in an implicit write.

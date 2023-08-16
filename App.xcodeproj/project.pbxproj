@@ -14,6 +14,7 @@
 		000C72EB2A8B29900064729E /* JoinSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EA2A8B29900064729E /* JoinSurveyView.swift */; };
 		000C72ED2A8C360A0064729E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EC2A8C360A0064729E /* MainView.swift */; };
 		000C72EF2A8D33290064729E /* SurveyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EE2A8D33290064729E /* SurveyList.swift */; };
+		000C72F32A8D971B0064729E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72F22A8D971B0064729E /* Status.swift */; };
 		68D3DF5A2942677E005209D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
 		911F548827C6A2BC005D4876 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F548727C6A2BC005D4876 /* AppConfig.swift */; };
 		912196BE27C6868100407648 /* atlasConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 912196BD27C6868100407648 /* atlasConfig.plist */; };
@@ -39,6 +40,7 @@
 		000C72EA2A8B29900064729E /* JoinSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSurveyView.swift; sourceTree = "<group>"; };
 		000C72EC2A8C360A0064729E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		000C72EE2A8D33290064729E /* SurveyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyList.swift; sourceTree = "<group>"; };
+		000C72F22A8D971B0064729E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		68D3DF592942677E005209D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		911F548727C6A2BC005D4876 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		912196BD27C6868100407648 /* atlasConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = atlasConfig.plist; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				913D464A2770E46800ABE7D3 /* App.swift */,
 				913D465D2770E7DF00ABE7D3 /* Survey.swift */,
 				68D3DF592942677E005209D9 /* Constants.swift */,
+				000C72F22A8D971B0064729E /* Status.swift */,
 				917097E727A0600000F1D65B /* Views */,
 			);
 			path = App;
@@ -210,6 +213,7 @@
 				917097DE27A05F0000F1D65B /* OpenRealmView.swift in Sources */,
 				913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */,
 				000C72E12A870E130064729E /* SurveyRow.swift in Sources */,
+				000C72F32A8D971B0064729E /* Status.swift in Sources */,
 				917097DC27A05EBC00F1D65B /* LogoutButton.swift in Sources */,
 				000C72E22A870E130064729E /* SurveyDetailView.swift in Sources */,
 				000C72EF2A8D33290064729E /* SurveyList.swift in Sources */,

@@ -10,13 +10,18 @@ struct SurveyList: View {
     
     var body: some View {
         List {
+            Section("New Surveys") {
+                ForEach(surveys.where { $0.status == Status.new }) { survey in
+                    SurveyRow(survey: survey)
+                }
+            }
             Section("Open Surveys") {
-                ForEach(surveys.where { !$0.isComplete }) { survey in
+                ForEach(surveys.where { $0.status == Status.open }) { survey in
                     SurveyRow(survey: survey)
                 }
             }
             Section("Completed Surveys") {
-                ForEach(surveys.where { $0.isComplete }) { survey in
+                ForEach(surveys.where { $0.status == Status.completed }) { survey in
                     SurveyRow(survey: survey)
                 }
             }
