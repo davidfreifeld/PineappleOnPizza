@@ -34,7 +34,7 @@ struct TallyResponseView: View {
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Dismiss") {
+                Button("Cancel") {
                     isPresentingTallyResponseView = false
                 }
             }

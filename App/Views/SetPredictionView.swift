@@ -52,7 +52,7 @@ struct SetPredictionView: View {
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Dismiss") {
+                Button("Cancel") {
                     isPresentingSetPredictionView = false
                 }
             }

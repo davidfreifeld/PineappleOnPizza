@@ -53,7 +53,7 @@ struct SurveyDetailView: View {
                         }) {
                             HStack {
                                 Spacer()
-                                Text("View Prediction")
+                                Text("View My Prediction")
                                 Spacer()
                             }
                         }

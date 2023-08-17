@@ -4,7 +4,7 @@ import RealmSwift
 /// Logout from the synchronized realm. Returns the user to the login/sign up screen.
 struct LogoutButton: View {
     @State var isLoggingOut = false
-    @State var error: Error?
+    //@State var error: Error?
     @State var errorMessage: ErrorMessage? = nil
     
     var body: some View {

@@ -4,11 +4,13 @@ import RealmSwift
 /// Show a detail view of a Survey. User can edit the summary or mark the Survey complete.
 struct JoinSurveyView: View {
     @State private var surveyCode: String = ""
-    @Binding var isInJoinSurveyView: Bool
+    @Binding var isPresentingJoinSurveyView: Bool
 
     @ObservedResults(Survey.self) var surveys
     
     @Environment(\.realm) private var realm
+    
+    @State var errorMessage: ErrorMessage? = nil
     
     var body: some View {
         Form {
@@ -20,11 +22,22 @@ struct JoinSurveyView: View {
             }
             Section {
                 Button(action: {
-                    let thawedSurvey = surveys.first(where: { $0.code == surveyCode })!.thaw()
-                    try! realm.write {
-                        thawedSurvey!.users.append(app.currentUser!.id)
+                    guard let survey = surveys.first(where: { $0.code == surveyCode }) else {
+                        self.errorMessage = ErrorMessage(errorText: "Could not find survey")
+                        return
                     }
-                    isInJoinSurveyView = false
+                    do {
+                        if survey.thaw()!.users.contains(app.currentUser!.id) {
+                            self.errorMessage = ErrorMessage(errorText: "You've already joined this survey!")
+                        } else {
+                            try realm.write {
+                                survey.thaw()!.users.append(app.currentUser!.id)
+                                isPresentingJoinSurveyView = false
+                            }
+                        }
+                    } catch {
+                        self.errorMessage = ErrorMessage(errorText: error.localizedDescription)
+                    }
                 }) {
                     HStack {
                         Spacer()
@@ -32,21 +45,22 @@ struct JoinSurveyView: View {
                         Spacer()
                     }
                 }
-                Button(action: {
-                    // If the user cancels, we don't want to
-                    // append the new object we created to the
-                    // list, so we set the ``isInCreateSurveyView``
-                    // value to false to return to the SurveysView.
-                    isInJoinSurveyView = false
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Cancel")
-                        Spacer()
-                    }
-                }
             }
         }
         .navigationBarTitle("Join Existing Survey")
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    isPresentingJoinSurveyView = false
+                }
+            }
+        }
+        .alert(item: $errorMessage) { errorMessage in
+            Alert(
+                title: Text("Failed to join survey"),
+                message: Text(errorMessage.errorText),
+                dismissButton: .cancel()
+            )
+        }
     }
 }

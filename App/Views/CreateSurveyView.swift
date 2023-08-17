@@ -12,13 +12,13 @@ struct CreateSurveyView: View {
     // We've passed in the ``creatingNewSurvey`` variable
     // from the SurveysView to know when the user is done
     // with the new Survey and we should return to the SurveysView.
-    @Binding var isInCreateSurveyView: Bool
+    @Binding var isPresentingCreateSurveyView: Bool
     @State var user: User
     @State var questionText = ""
     @State var answerText = ""
 
     func randomString() -> String {
-      let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      let letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
       return String((0..<6).map{ _ in letters.randomElement()! })
     }
     
@@ -79,7 +79,7 @@ struct CreateSurveyView: View {
                     // Now we're done with this view, so set the
                     // ``isInCreateSurveyView`` variable to false to
                     // return to the SurveysView.
-                    isInCreateSurveyView = false
+                    isPresentingCreateSurveyView = false
                 }) {
                     HStack {
                         Spacer()
@@ -92,7 +92,7 @@ struct CreateSurveyView: View {
                     // append the new object we created to the
                     // list, so we set the ``isInCreateSurveyView``
                     // value to false to return to the SurveysView.
-                    isInCreateSurveyView = false
+                    isPresentingCreateSurveyView = false
                 }) {
                     HStack {
                         Spacer()
@@ -103,5 +103,12 @@ struct CreateSurveyView: View {
             }
         }
         .navigationBarTitle("Create New Survey")
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    isPresentingCreateSurveyView = false
+                }
+            }
+        }
     }
 }
