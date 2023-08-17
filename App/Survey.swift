@@ -30,6 +30,10 @@ class Survey: Object, ObjectKeyIdentifiable {
         }
         return true
     }
+    
+    func userHasPrediction() -> Bool {
+        self.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id })
+    }
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {

@@ -45,6 +45,7 @@ struct MainView: View {
                     CreateSurveyView(isInCreateSurveyView: $isInCreateSurveyView, user: user)
                 }
             }
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }

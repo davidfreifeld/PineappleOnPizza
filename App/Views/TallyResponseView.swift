@@ -19,9 +19,7 @@ struct TallyResponseView: View {
     
     var body: some View {
         List {
-            Section(header: Text("Question")) {
-                Text(survey.questionText)
-            }
+            SurveyQuestionSection(survey: survey)
             Section(header: Text("Answers")) {
                 ForEach(survey.answers) { answer in
                     Button(answer.answerText) {
