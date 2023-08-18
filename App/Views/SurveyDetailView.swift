@@ -29,9 +29,11 @@ struct SurveyDetailView: View {
                                         Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
                                     }
                                 }
-//                                if survey.status == Status.completed {
-//                                    ProgressView(value: survey.get)
-//                                }
+                                if survey.status == Status.completed {
+                                    // TODO: set color
+                                    ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
+//                                        .foregroundColor(.green)
+                                }
                             } else {
                                 HStack {
                                     Text(answer.answerText)
@@ -80,6 +82,7 @@ struct SurveyDetailView: View {
                 
                 if survey.status == Status.completed {
                     Text("My score: \(survey.getUserFinalScore(user_id: app.currentUser!.id))")
+                        .foregroundColor(.green)
                 }
             }
             
