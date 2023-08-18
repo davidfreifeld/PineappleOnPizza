@@ -79,6 +79,8 @@ struct CreateSurveyView: View {
                     // Now we're done with this view, so set the
                     // ``isInCreateSurveyView`` variable to false to
                     // return to the SurveysView.
+                    answerText = ""
+                    newSurvey = Survey()
                     isPresentingCreateSurveyView = false
                 }) {
                     HStack {
