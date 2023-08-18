@@ -33,7 +33,7 @@ struct OwnerActionsView: View {
                         Spacer()
                     }
                 }
-                .disabled(!survey.areAllPredictionsIn())
+                .disabled(!survey.areAllPredictionsIn)
             } else if survey.status == Status.open {
                 Button(action: {
                     isPresentingConfirmUnopenView = true

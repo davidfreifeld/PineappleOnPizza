@@ -22,7 +22,7 @@ class Survey: Object, ObjectKeyIdentifiable {
         })
     }
     
-    func areAllPredictionsIn() -> Bool {
+    var areAllPredictionsIn: Bool {
         for user in users {
             if !self.answers[0].predictions.contains(where: { $0.user_id == user }) {
                 return false
@@ -31,7 +31,7 @@ class Survey: Object, ObjectKeyIdentifiable {
         return true
     }
     
-    func userHasPrediction() -> Bool {
+    var userHasPrediction: Bool {
         self.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id })
     }
 }

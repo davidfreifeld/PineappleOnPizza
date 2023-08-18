@@ -24,12 +24,12 @@ struct CreateSurveyView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Survey Question")) {
+            Section {
                 // When using Atlas Device Sync, binding directly to the
                 // synced property can cause performance issues. Instead,
                 // we'll bind to a `@State` variable and then assign to the
                 // synced property when the user presses `Save`
-                TextField("New survey", text: $questionText)
+                TextField("Survey Question", text: $questionText)
                     .onAppear {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
@@ -86,19 +86,6 @@ struct CreateSurveyView: View {
                     HStack {
                         Spacer()
                         Text("Save")
-                        Spacer()
-                    }
-                }
-                Button(action: {
-                    // If the user cancels, we don't want to
-                    // append the new object we created to the
-                    // list, so we set the ``isInCreateSurveyView``
-                    // value to false to return to the SurveysView.
-                    isPresentingCreateSurveyView = false
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Cancel")
                         Spacer()
                     }
                 }

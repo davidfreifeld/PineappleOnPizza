@@ -46,7 +46,7 @@ struct SurveyDetailView: View {
                 }
                 
 //                // Prediction Section
-                if survey.userHasPrediction() {
+                if survey.userHasPrediction {
                     Section {
                         Button(action: {
                             isPresentingViewPredictionView = true
