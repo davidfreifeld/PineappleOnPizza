@@ -78,11 +78,8 @@ struct SurveyDetailView: View {
                             }
                         }
                     }
-                }
-                
-                if survey.status == Status.completed {
-                    Text("My score: \(survey.getUserFinalScore(user_id: app.currentUser!.id))")
-                        .foregroundColor(.green)
+                } else {
+                    FinalScoresView(survey: survey)
                 }
             }
             
