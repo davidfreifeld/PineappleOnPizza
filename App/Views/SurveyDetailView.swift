@@ -72,6 +72,10 @@ struct SurveyDetailView: View {
                         }
                     }
                 }
+                
+                if survey.status == Status.completed {
+                    Text("My score: \(survey.getUserScore(user_id: app.currentUser!.id))")
+                }
             }
             
             if survey.status == Status.open {

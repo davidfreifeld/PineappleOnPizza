@@ -34,6 +34,16 @@ class Survey: Object, ObjectKeyIdentifiable {
     var userHasPrediction: Bool {
         self.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id })
     }
+    
+    func getUserScore(user_id: String) -> Int {
+        var totalError = 0
+        for answer in self.answers {
+            let userPrediction = Int(answer.predictions.first(where: { $0.user_id == user_id })!.predictionValue)
+            let actualScore = Int((Double(answer.currentVotes) / Double(self.totalVotes) * 100).rounded())
+            totalError += (userPrediction - actualScore) * (userPrediction - actualScore)
+        }
+        return totalError
+    }
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {
