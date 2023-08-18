@@ -29,6 +29,9 @@ struct SurveyDetailView: View {
                                         Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
                                     }
                                 }
+//                                if survey.status == Status.completed {
+//                                    ProgressView(value: survey.get)
+//                                }
                             } else {
                                 HStack {
                                     Text(answer.answerText)
@@ -45,36 +48,38 @@ struct SurveyDetailView: View {
                     }
                 }
                 
-//                // Prediction Section
-                if survey.userHasPrediction {
-                    Section {
-                        Button(action: {
-                            isPresentingViewPredictionView = true
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("View My Prediction")
-                                Spacer()
+                // Prediction Section
+                if survey.status != Status.completed {
+                    if survey.userHasPrediction {
+                        Section {
+                            Button(action: {
+                                isPresentingViewPredictionView = true
+                            }) {
+                                HStack {
+                                    Spacer()
+                                    Text("View My Prediction")
+                                    Spacer()
+                                }
                             }
                         }
                     }
-                }
-                else {
-                    Section {
-                        Button(action: {
-                            isPresentingSetPredictionView = true
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("Set Prediction")
-                                Spacer()
+                    else {
+                        Section {
+                            Button(action: {
+                                isPresentingSetPredictionView = true
+                            }) {
+                                HStack {
+                                    Spacer()
+                                    Text("Set Prediction")
+                                    Spacer()
+                                }
                             }
                         }
                     }
                 }
                 
                 if survey.status == Status.completed {
-                    Text("My score: \(survey.getUserScore(user_id: app.currentUser!.id))")
+                    Text("My score: \(survey.getUserFinalScore(user_id: app.currentUser!.id))")
                 }
             }
             

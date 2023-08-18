@@ -35,7 +35,11 @@ class Survey: Object, ObjectKeyIdentifiable {
         self.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id })
     }
     
-    func getUserScore(user_id: String) -> Int {
+    func getUserPrediction(answerIndex: Int, user_id: String) -> Double {
+        self.answers[answerIndex].predictions.first( where: { $0.user_id == user_id } )!.predictionValue
+    }
+    
+    func getUserFinalScore(user_id: String) -> Int {
         var totalError = 0
         for answer in self.answers {
             let userPrediction = Int(answer.predictions.first(where: { $0.user_id == user_id })!.predictionValue)
@@ -44,6 +48,7 @@ class Survey: Object, ObjectKeyIdentifiable {
         }
         return totalError
     }
+
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {
@@ -56,4 +61,5 @@ class Prediction: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var user_id: String
     @Persisted var predictionValue: Double
 }
+
 

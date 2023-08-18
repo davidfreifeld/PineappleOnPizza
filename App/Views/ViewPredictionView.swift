@@ -20,15 +20,26 @@ struct ViewPredictionView: View {
                 // This is to view the prediction, that's already been set
                 ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
                     HStack {
-                        ProgressView(value: Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue) / Double(100)) {
+                        ProgressView(value: survey.getUserPrediction(answerIndex: answerIndex, user_id: app.currentUser!.id) / Double(100)) {
                             HStack {
                                 Text(survey.answers[answerIndex].answerText)
                                 Spacer()
-                                Text("\(Int(Double(survey.answers[answerIndex].predictions.first( where: { $0.user_id == app.currentUser?.id } )!.predictionValue)))%")
+                                Text("\(Int(survey.getUserPrediction(answerIndex: answerIndex, user_id: app.currentUser!.id)))%")
                             }
                         }
                     }
                 }
+//                ForEach(survey.answers) { answer in
+//                    HStack {
+//                        ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100)) {
+//                            HStack {
+//                                Text(answer.answerText)
+//                                Spacer()
+//                                Text("\(Int(answer.getUserPrediction(user_id: app.currentUser!.id)))%")
+//                            }
+//                        }
+//                    }
+//                }
             }
         }
         .toolbar {
