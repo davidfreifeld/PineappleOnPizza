@@ -15,6 +15,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     @Persisted var status: Status
     @Persisted var code: String
     @Persisted var users: List<String>
+    @Persisted var minVotes: Int
     
     var totalVotes: Int {
         self.answers.reduce(0, { runningSum, nextAnswer in

@@ -16,6 +16,7 @@ struct CreateSurveyView: View {
     @State var user: User
     @State var questionText = ""
     @State var answerText = ""
+    @State var minVotes = 20.0
 
     func randomString() -> String {
       let letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
@@ -56,6 +57,16 @@ struct CreateSurveyView: View {
                     .disabled(answerText.isEmpty)
                 }
             }
+            Section(header: Text("Minimum Votes Required")) {
+                HStack {
+                    Slider(value: $minVotes, in: 0...200, step: 1) {
+                        Text("Minimum Votes Required")
+                    }
+                    Spacer()
+                    Text("\(Int(minVotes))")
+                }
+            }
+            
             Section {
                 Button(action: {
                     newSurvey.owner_id = user.id
@@ -69,6 +80,7 @@ struct CreateSurveyView: View {
                         answer.answerText = answerText
                         newSurvey.answers.append(answer)
                     }
+                    newSurvey.minVotes = Int(minVotes)
                     newSurvey.code = randomString()
                     newSurvey.users.append(user.id)
                     newSurvey.status = Status.new

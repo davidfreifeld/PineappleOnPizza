@@ -12,8 +12,6 @@ struct SurveyDetailView: View {
     @State private var isPresentingViewPredictionView = false
     @State private var isPresentingOwnerActionsView = false
     
-    @Environment(\.realm) var realm
-    
     var body: some View {
         ZStack {
             List {
@@ -30,9 +28,8 @@ struct SurveyDetailView: View {
                                     }
                                 }
                                 if survey.status == Status.completed {
-                                    // TODO: set color
                                     ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
-//                                        .foregroundColor(.green)
+                                        .tint(.green)
                                 }
                             } else {
                                 HStack {

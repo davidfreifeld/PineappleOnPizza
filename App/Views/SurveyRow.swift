@@ -21,6 +21,6 @@ struct SurveyRow: View {
                 }
             }
         }
-//        .listRowBackground(survey.status.rowColor)
+        .listRowBackground(SurveyRowColorView(survey: survey))
     }
 }

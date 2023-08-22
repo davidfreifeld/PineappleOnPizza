@@ -17,5 +17,6 @@ struct FinalScoresView: View {
         ForEach(0..<survey.users.count, id: \.self) { userIndex in
             Text("\(survey.users[userIndex]): \(survey.getUserFinalScore(user_id: app.currentUser!.id))")
         }
+        Text("My email: \(app.currentUser!.profile.email!)")
     }
 }
