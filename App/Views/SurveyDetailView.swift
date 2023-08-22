@@ -15,9 +15,13 @@ struct SurveyDetailView: View {
     var body: some View {
         ZStack {
             List {
+                // The title / question
                 SurveyQuestionSection(survey: survey)
+                
+                // The answers
                 Section(header: Text("Answers")) {
                     ForEach(survey.answers) { answer in
+                        // If completed, show the results
                         if survey.status == Status.completed {
                             if survey.totalVotes > 0 {
                                 ProgressView(value: Double(answer.currentVotes) / Double(survey.totalVotes)) {
@@ -27,6 +31,7 @@ struct SurveyDetailView: View {
                                         Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
                                     }
                                 }
+                                // Show the user's prediction next to the results
                                 if survey.status == Status.completed {
                                     ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
                                         .tint(.green)
@@ -38,6 +43,7 @@ struct SurveyDetailView: View {
                                     Text("No votes")
                                 }
                             }
+                        // if not completed, just show the answer
                         } else {
                             Text(answer.answerText)
                                 .font(.subheadline)
@@ -47,7 +53,12 @@ struct SurveyDetailView: View {
                     }
                 }
                 
-                // Prediction Section
+                // The minimum votes required
+                Section {
+                    Text("Minimum votes required to complete: \(survey.minVotes)")
+                }
+                
+                // Prediction button Section
                 if survey.status != Status.completed {
                     if survey.userHasPrediction {
                         Section {
@@ -80,6 +91,7 @@ struct SurveyDetailView: View {
                 }
             }
             
+            // a floating button for tallying responses, only if it's an Open survey
             if survey.status == Status.open {
                 TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
             }

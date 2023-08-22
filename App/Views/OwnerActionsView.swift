@@ -44,13 +44,15 @@ struct OwnerActionsView: View {
                         Spacer()
                     }
                 }
-                Button(action: {
-                    isPresentingConfirmCompleteView = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Complete Survey")
-                        Spacer()
+                if survey.totalVotes >= survey.minVotes {
+                    Button(action: {
+                        isPresentingConfirmCompleteView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Complete Survey")
+                            Spacer()
+                        }
                     }
                 }
             } else if survey.status == Status.completed {
