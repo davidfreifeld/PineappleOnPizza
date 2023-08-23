@@ -20,6 +20,7 @@ struct SurveyList: View {
                     SurveyRow(survey: survey)
                 }
             }
+            
             Section("Completed Surveys") {
                 ForEach(surveys.where { $0.status == Status.completed }) { survey in
                     SurveyRow(survey: survey)

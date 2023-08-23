@@ -21,51 +21,56 @@ struct OwnerActionsView: View {
     @State var isPresentingConfirmCompleteView = false
     
     var body: some View {
-        List {
-            SurveyQuestionSection(survey: survey)
-            if survey.status == Status.new {
-                Button(action: {
-                    isPresentingConfirmOpenView = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Open Survey")
-                        Spacer()
-                    }
-                }
-                .disabled(!survey.areAllPredictionsIn)
-            } else if survey.status == Status.open {
-                Button(action: {
-                    isPresentingConfirmUnopenView = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Unopen Survey")
-                        Spacer()
-                    }
-                }
-                if survey.totalVotes >= survey.minVotes {
+        VStack {
+            List {
+                SurveyQuestionSection(survey: survey)
+                if survey.status == Status.new {
                     Button(action: {
-                        isPresentingConfirmCompleteView = true
+                        isPresentingConfirmOpenView = true
                     }) {
                         HStack {
                             Spacer()
-                            Text("Complete Survey")
+                            Text("Open Survey")
+                            Spacer()
+                        }
+                    }
+                    .disabled(!survey.areAllPredictionsIn)
+                } else if survey.status == Status.open {
+                    Button(action: {
+                        isPresentingConfirmUnopenView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Unopen Survey")
+                            Spacer()
+                        }
+                    }
+                    if survey.totalVotes >= survey.minVotes {
+                        Button(action: {
+                            isPresentingConfirmCompleteView = true
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("Complete Survey")
+                                Spacer()
+                            }
+                        }
+                    }
+                } else if survey.status == Status.completed {
+                    Button(action: {
+                        isPresentingConfirmReopenView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Reopen Survey")
                             Spacer()
                         }
                     }
                 }
-            } else if survey.status == Status.completed {
-                Button(action: {
-                    isPresentingConfirmReopenView = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Reopen Survey")
-                        Spacer()
-                    }
-                }
             }
+            Spacer()
+            Text(survey.statusString)
+                .frame(maxWidth: 300, alignment: .center)
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {

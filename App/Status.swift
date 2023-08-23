@@ -25,8 +25,8 @@ enum Status: Int, PersistableEnum {
     var rowColor: Color {
         switch self {
         case .new: return .yellow
-        case .open: return .green
-        case .completed: return .brown
+        case .open: return Color(red: 0.8078, green: 0.8078, blue: 0.3529)
+        case .completed: return .orange
         }
     }
 }

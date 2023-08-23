@@ -11,91 +11,113 @@ struct SurveyDetailView: View {
     @State private var isPresentingSetPredictionView = false
     @State private var isPresentingViewPredictionView = false
     @State private var isPresentingOwnerActionsView = false
+    @State private var isPresentingFinalResultsView = false
     
     var body: some View {
         ZStack {
-            List {
-                // The title / question
-                SurveyQuestionSection(survey: survey)
-                
-                // The answers
-                Section(header: Text("Answers")) {
-                    ForEach(survey.answers) { answer in
-                        // If completed, show the results
-                        if survey.status == Status.completed {
-                            if survey.totalVotes > 0 {
-                                ProgressView(value: Double(answer.currentVotes) / Double(survey.totalVotes)) {
+            VStack {
+                List {
+                    // The title / question
+                    SurveyQuestionSection(survey: survey)
+                    
+                    // The answers
+                    Section(header: Text("Answers")) {
+                        ForEach(survey.answers) { answer in
+                            // If completed, show the results
+                            if survey.status == Status.completed {
+                                if survey.totalVotes > 0 {
+                                    ProgressView(value: Double(answer.currentVotes) / Double(survey.totalVotes)) {
+                                        HStack {
+                                            Text(answer.answerText)
+                                            Spacer()
+                                            Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
+                                        }
+                                    }
+                                    // Show the user's prediction next to the results
+                                    if survey.status == Status.completed {
+                                        ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
+                                            .tint(.green)
+                                    }
+                                } else {
                                     HStack {
                                         Text(answer.answerText)
                                         Spacer()
-                                        Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
+                                        Text("No votes")
                                     }
                                 }
-                                // Show the user's prediction next to the results
-                                if survey.status == Status.completed {
-                                    ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
-                                        .tint(.green)
-                                }
+                                // if not completed, just show the answer
                             } else {
-                                HStack {
-                                    Text(answer.answerText)
-                                    Spacer()
-                                    Text("No votes")
-                                }
+                                Text(answer.answerText)
+                                    .font(.subheadline)
+                                    .italic()
+                                    .foregroundColor(.gray)
                             }
-                        // if not completed, just show the answer
-                        } else {
-                            Text(answer.answerText)
-                                .font(.subheadline)
-                                .italic()
-                                .foregroundColor(.gray)
                         }
                     }
-                }
-                
-                // The minimum votes required
-                Section {
-                    Text("Minimum votes required to complete: \(survey.minVotes)")
-                }
-                
-                // Prediction button Section
-                if survey.status != Status.completed {
-                    if survey.userHasPrediction {
+                    
+                    // Prediction button Section
+                    if survey.status != Status.completed {
+                        if survey.userHasPrediction {
+                            Section {
+                                Button(action: {
+                                    isPresentingViewPredictionView = true
+                                }) {
+                                    HStack {
+                                        Spacer()
+                                        Text("View My Prediction")
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            Section {
+                                Button(action: {
+                                    isPresentingSetPredictionView = true
+                                }) {
+                                    HStack {
+                                        Spacer()
+                                        Text("Set Prediction")
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        Section {
+                            Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
+                                .foregroundColor(.green)
+                        }
                         Section {
                             Button(action: {
-                                isPresentingViewPredictionView = true
+                                isPresentingFinalResultsView = true
                             }) {
                                 HStack {
                                     Spacer()
-                                    Text("View My Prediction")
+                                    Text("View Final Results")
                                     Spacer()
                                 }
                             }
                         }
                     }
-                    else {
-                        Section {
-                            Button(action: {
-                                isPresentingSetPredictionView = true
-                            }) {
-                                HStack {
-                                    Spacer()
-                                    Text("Set Prediction")
-                                    Spacer()
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    FinalScoresView(survey: survey)
                 }
             }
+            
+            VStack {
+                Spacer()
+                Image("pineapple-with-sign-alpha")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+            }
+//            Text(survey.statusString)
+//                .frame(maxWidth: 300, alignment: .center)
             
             // a floating button for tallying responses, only if it's an Open survey
             if survey.status == Status.open {
                 TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
             }
         }
+        
         .navigationBarTitle("Survey")
         .navigationBarItems(trailing:
             Button {
@@ -123,6 +145,11 @@ struct SurveyDetailView: View {
         .sheet(isPresented: $isPresentingOwnerActionsView) {
             NavigationView {
                 OwnerActionsView(survey: survey, isPresentingOwnerActionsView: $isPresentingOwnerActionsView)
+            }
+        }
+        .sheet(isPresented: $isPresentingFinalResultsView) {
+            NavigationView {
+                FinalResultsView(survey: survey, isPresentingFinalResultsView: $isPresentingFinalResultsView)
             }
         }
     }

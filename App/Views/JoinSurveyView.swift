@@ -4,6 +4,7 @@ import RealmSwift
 /// Show a detail view of a Survey. User can edit the summary or mark the Survey complete.
 struct JoinSurveyView: View {
     @State private var surveyCode: String = ""
+    @State private var nickname: String = ""
     @Binding var isPresentingJoinSurveyView: Bool
 
     @ObservedResults(Survey.self) var surveys
@@ -20,9 +21,15 @@ struct JoinSurveyView: View {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
             }
+            Section(header: Text("Nickname")) {
+                TextField("Optional", text: $nickname)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
+            }
             Section {
                 Button(action: {
-                    guard let survey = surveys.first(where: { $0.code == surveyCode }) else {
+                    guard let survey = surveys.first(where: { $0.code == surveyCode.uppercased() }) else {
                         self.errorMessage = ErrorMessage(errorText: "Could not find survey")
                         return
                     }
