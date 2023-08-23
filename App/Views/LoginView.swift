@@ -10,47 +10,53 @@ struct LoginView: View {
     @EnvironmentObject var errorHandler: ErrorHandler
 
     var body: some View {
-        VStack {
+        VStack() {
+            Spacer()
             if isLoggingIn {
                 ProgressView()
             }
-            VStack {
-                Text("PineappleOnPizza")
-                    .font(.title)
-                TextField("Email", text: $email)
-                    .textInputAutocapitalization(.never)
-                    .textFieldStyle(.roundedBorder)
-                    .autocorrectionDisabled(true)
-                SecureField("Password", text: $password)
-                    .textFieldStyle(.roundedBorder)
-                Button("Log In") {
-                    // Button pressed, so log in
-                    isLoggingIn = true
-                    Task.init {
-                        await login(email: email, password: password)
-                        isLoggingIn = false
-                    }
+            Text("Pineapple On Pizza?!")
+                .font(.title)
+            TextField("Email", text: $email)
+                .textInputAutocapitalization(.never)
+                .textFieldStyle(.roundedBorder)
+                .autocorrectionDisabled(true)
+            SecureField("Password", text: $password)
+                .textFieldStyle(.roundedBorder)
+            Button("Log In") {
+                // Button pressed, so log in
+                isLoggingIn = true
+                Task.init {
+                    await login(email: email, password: password)
+                    isLoggingIn = false
                 }
-                .disabled(isLoggingIn)
-                .frame(width: 150, height: 50)
-                .background(Color(red: 0.25, green: 0.59, blue: 0.22))
-                .foregroundColor(.white)
-                .clipShape(Capsule())
-                Button("Create Account") {
-                    // Button pressed, so create account and then log in
-                    isLoggingIn = true
-                    Task {
-                        await signUp(email: email, password: password)
-                        isLoggingIn = false
-                    }
+            }
+            .disabled(isLoggingIn)
+            .frame(width: 150, height: 50)
+            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            Button("Create Account") {
+                // Button pressed, so create account and then log in
+                isLoggingIn = true
+                Task {
+                    await signUp(email: email, password: password)
+                    isLoggingIn = false
                 }
-                .disabled(isLoggingIn)
-                .frame(width: 150, height: 50)
-                .background(Color(red: 0.25, green: 0.59, blue: 0.22))
-                .foregroundColor(.white)
-                .clipShape(Capsule())
-            }.padding(20)
+            }
+            .disabled(isLoggingIn)
+            .frame(width: 150, height: 50)
+            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            Spacer()
+            Image("pineapple-waving-alpha")
+                .resizable()
+                .frame(width: 120, height: 160)
         }
+        .padding(20)
+        .background(Color("MyColor"))
+//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing) // this (obviously) expands the View to the whole screen
     }
 
     /// Logs in with an existing user.

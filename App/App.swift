@@ -1,3 +1,4 @@
+//import Foundation
 import SwiftUI
 import RealmSwift
 
@@ -22,6 +23,9 @@ struct realmSwiftUIApp: SwiftUI.App {
                 } message: {
                     Text(errorHandler.error?.localizedDescription ?? "")
                 }
+//                .onAppear() {
+//                    try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+//                }
         }
     }
 }

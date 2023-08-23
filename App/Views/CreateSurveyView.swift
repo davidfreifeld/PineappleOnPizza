@@ -17,6 +17,7 @@ struct CreateSurveyView: View {
     @State var questionText = ""
     @State var answerText = ""
     @State var minVotes = 20.0
+    @State var nickname = ""
 
     func randomString() -> String {
       let letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
@@ -66,6 +67,12 @@ struct CreateSurveyView: View {
                     Text("\(Int(minVotes))")
                 }
             }
+            Section(header: Text("My Nickname (For Scoreboard)")) {
+                TextField("Optional", text: $nickname)
+                    .onAppear {
+                        UITextField.appearance().clearButtonMode = .whileEditing
+                    }
+            }
             
             Section {
                 Button(action: {
@@ -82,7 +89,7 @@ struct CreateSurveyView: View {
                     }
                     newSurvey.minVotes = Int(minVotes)
                     newSurvey.code = randomString()
-                    newSurvey.users.append(user.id)
+                    newSurvey.userMap[user.id] = nickname
                     newSurvey.status = Status.new
                     // Appending the new Survey object to the ``surveys``
                     // ObservedResults collection adds it to the

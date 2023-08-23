@@ -19,8 +19,12 @@ struct FinalResultsView: View {
 //            ForEach(0..<survey.users.count, id: \.self) { userIndex in
             ForEach(survey.getFinalScoresSortedUserList(), id: \.self) { user_id in
                 HStack {
-                    Text(Utils.getSubstringAtEnd(value: user_id))
-                    Text(user_id == app.currentUser!.id ? "(Me)" : "")
+                    if survey.userMap[user_id] == "" {
+                        Text(Utils.getSubstringAtEnd(value: user_id))
+                    } else {
+                        Text(survey.userMap[user_id]!)
+                    }
+                    Text(user_id == app.currentUser!.id ? "(Me):" : ":")
                     Spacer()
                     Text(Utils.formatNumber(value: survey.getUserFinalScore(user_id: user_id)))
                         

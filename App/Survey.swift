@@ -15,7 +15,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     @Persisted var answers: List<Answer>
     @Persisted var status: Status
     @Persisted var code: String
-    @Persisted var users: List<String>
+    @Persisted var userMap: Map<String,String> // user_id, nickname
     @Persisted var minVotes: Int
     
     var totalVotes: Int {
@@ -25,7 +25,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     }
     
     var areAllPredictionsIn: Bool {
-        for user in users {
+        for (user, _) in userMap.asKeyValueSequence() {
             if !self.answers[0].predictions.contains(where: { $0.user_id == user }) {
                 return false
             }
@@ -49,7 +49,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     
     func getFinalScoresSortedUserList() -> [String] {
         var resultsDict = [String: Double]()
-        for user_id in self.users {
+        for (user_id, _) in self.userMap.asKeyValueSequence() {
             resultsDict[user_id] = getUserFinalScore(user_id: user_id)
         }
         return Array(resultsDict.keys).sorted() { $0 < $1 }

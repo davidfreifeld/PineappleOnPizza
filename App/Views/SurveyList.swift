@@ -6,7 +6,7 @@ struct SurveyList: View {
     // ObservedResults is a collection of all Survey objects in the realm.
     // Deleting objects from the observed collection
     // deletes them from the realm.
-    @ObservedResults(Survey.self, where: { $0.users.contains(app.currentUser!.id) }, sortDescriptor: SortDescriptor(keyPath: "_id", ascending: true)) var surveys
+    @ObservedResults(Survey.self, where: { $0.userMap.keys.contains(app.currentUser!.id) }, sortDescriptor: SortDescriptor(keyPath: "_id", ascending: true)) var surveys
     
     var body: some View {
         List {

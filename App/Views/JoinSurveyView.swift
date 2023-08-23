@@ -21,7 +21,7 @@ struct JoinSurveyView: View {
                         UITextField.appearance().clearButtonMode = .whileEditing
                     }
             }
-            Section(header: Text("Nickname")) {
+            Section(header: Text("My Nickname (For Scoreboard)")) {
                 TextField("Optional", text: $nickname)
                     .onAppear {
                         UITextField.appearance().clearButtonMode = .whileEditing
@@ -34,11 +34,12 @@ struct JoinSurveyView: View {
                         return
                     }
                     do {
-                        if survey.thaw()!.users.contains(app.currentUser!.id) {
+                        if survey.thaw()!.userMap.keys.contains(app.currentUser!.id) {
                             self.errorMessage = ErrorMessage(errorText: "You've already joined this survey!")
                         } else {
                             try realm.write {
-                                survey.thaw()!.users.append(app.currentUser!.id)
+//                                survey.thaw()!.users.append(app.currentUser!.id)
+                                survey.thaw()!.userMap[app.currentUser!.id] = nickname
                                 isPresentingJoinSurveyView = false
                             }
                         }
