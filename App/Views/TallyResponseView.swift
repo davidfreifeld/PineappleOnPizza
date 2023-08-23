@@ -40,5 +40,7 @@ struct TallyResponseView: View {
             }
         }
         .navigationTitle("Tally Response")
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

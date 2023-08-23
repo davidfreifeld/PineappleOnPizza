@@ -70,5 +70,7 @@ struct JoinSurveyView: View {
                 dismissButton: .cancel()
             )
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

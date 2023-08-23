@@ -108,6 +108,8 @@ struct OwnerActionsView: View {
         } message: {
             Text("Are you sure you want to reopen the survey?")
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
     
     func updateSurveyStatus(status: Status) {

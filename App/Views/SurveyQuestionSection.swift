@@ -14,6 +14,7 @@ struct SurveyQuestionSection: View {
         Section(header: Text("Survey Code: \(survey.code)")) {
             Text(survey.questionText)
                 .font(.headline)
+                .listRowBackground(Color("ListItemColor"))
         }
     }
 }

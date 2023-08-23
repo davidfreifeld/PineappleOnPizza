@@ -27,5 +27,7 @@ struct SurveyList: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

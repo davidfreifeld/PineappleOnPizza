@@ -33,7 +33,8 @@ struct LoginView: View {
             }
             .disabled(isLoggingIn)
             .frame(width: 150, height: 50)
-            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
+//            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
+            .background(Color("CompletedSurveyColor"))
             .foregroundColor(.white)
             .clipShape(Capsule())
             Button("Create Account") {
@@ -46,7 +47,7 @@ struct LoginView: View {
             }
             .disabled(isLoggingIn)
             .frame(width: 150, height: 50)
-            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
+            .background(Color("CompletedSurveyColor"))
             .foregroundColor(.white)
             .clipShape(Capsule())
             Spacer()
@@ -55,7 +56,7 @@ struct LoginView: View {
                 .frame(width: 120, height: 160)
         }
         .padding(20)
-        .background(Color("MyColor"))
+        .background(Color("MainBackgroundColor"))
 //        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing) // this (obviously) expands the View to the whole screen
     }
 

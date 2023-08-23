@@ -15,10 +15,14 @@ struct OpenRealmView: View {
             // Starting the Realm.autoOpen process.
             // Show a progress view.
             ProgressView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("MainBackgroundColor"))
         case .waitingForUser:
             // Waiting for a user to be logged in before executing
             // Realm.asyncOpen.
             ProgressView("Waiting for user to log in...")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color("MainBackgroundColor"))
         case .open(let realm):
             // The realm has been opened and is ready for use.
             // Show the Main view.

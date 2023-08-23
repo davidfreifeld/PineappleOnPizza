@@ -118,5 +118,7 @@ struct CreateSurveyView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

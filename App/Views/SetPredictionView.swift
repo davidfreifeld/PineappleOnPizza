@@ -76,5 +76,7 @@ struct SetPredictionView: View {
             }
         }
         .navigationBarTitle("Survey Prediction", displayMode: .inline)
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

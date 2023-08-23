@@ -40,6 +40,7 @@ struct FinalResultsView: View {
             }
         }
         .navigationBarTitle("Final Results", displayMode: .inline)
-        
+        .scrollContentBackground(.hidden)
+        .background(Color("MainBackgroundColor"))
     }
 }

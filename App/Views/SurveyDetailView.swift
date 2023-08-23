@@ -50,7 +50,8 @@ struct SurveyDetailView: View {
                                 Text(answer.answerText)
                                     .font(.subheadline)
                                     .italic()
-                                    .foregroundColor(.gray)
+//                                    .foregroundColor(.gray)
+                                    .listRowBackground(Color("ListItemColor"))
                             }
                         }
                     }
@@ -68,6 +69,10 @@ struct SurveyDetailView: View {
                                         Spacer()
                                     }
                                 }
+                                .frame(width: 150, height: 50)
+                                .background(Color("CompletedSurveyColor"))
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
                             }
                         }
                         else {
@@ -101,7 +106,9 @@ struct SurveyDetailView: View {
                         }
                     }
                 }
-            }
+            } // List
+            .scrollContentBackground(.hidden)
+            .background(Color("MainBackgroundColor"))
             
             VStack {
                 Spacer()
@@ -116,7 +123,7 @@ struct SurveyDetailView: View {
             if survey.status == Status.open {
                 TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
             }
-        }
+        } // ZStack
         
         .navigationBarTitle("Survey")
         .navigationBarItems(trailing:
