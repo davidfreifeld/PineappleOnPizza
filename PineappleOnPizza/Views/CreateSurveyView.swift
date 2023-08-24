@@ -18,6 +18,8 @@ struct CreateSurveyView: View {
     @State var answerText = ""
     @State var minVotes = 20.0
     @State var nickname = ""
+    
+    @State var errorMessage: ErrorMessage? = nil
 
     func randomString() -> String {
       let letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
@@ -82,31 +84,38 @@ struct CreateSurveyView: View {
             } // Form
             
             Button(action: {
-                newSurvey.owner_id = user.id
-                // To avoid updating too many times and causing Sync-related
-                // performance issues, we only assign to the `newSurvey.questionText`
-                // once when the user presses `Save`.
-                newSurvey.questionText = questionText
                 // Append the last answer, even if the user didn't hit the plus
                 if answerText != "" {
                     let answer = Answer()
                     answer.answerText = answerText
                     newSurvey.answers.append(answer)
                 }
-                newSurvey.minVotes = Int(minVotes)
-                newSurvey.code = randomString()
-                newSurvey.userMap[user.id] = nickname
-                newSurvey.status = Status.new
-                // Appending the new Survey object to the ``surveys``
-                // ObservedResults collection adds it to the
-                // realm in an implicit write.
-                $surveys.append(newSurvey)
-                // Now we're done with this view, so set the
-                // ``isInCreateSurveyView`` variable to false to
-                // return to the SurveysView.
-                answerText = ""
-                newSurvey = Survey()
-                isPresentingAddSurveyView = false
+                
+                if questionText == "" {
+                    self.errorMessage = ErrorMessage(errorText: "Please supply a question for this survey.")
+                } else if newSurvey.answers.count < 2 {
+                    self.errorMessage = ErrorMessage(errorText: "Please supply at least two answers for this survey.")
+                } else {
+                    newSurvey.owner_id = user.id
+                    // To avoid updating too many times and causing Sync-related
+                    // performance issues, we only assign to the `newSurvey.questionText`
+                    // once when the user presses `Save`.
+                    newSurvey.questionText = questionText
+                    newSurvey.minVotes = Int(minVotes)
+                    newSurvey.code = randomString()
+                    newSurvey.userMap[user.id] = nickname
+                    newSurvey.status = Status.new
+                    // Appending the new Survey object to the ``surveys``
+                    // ObservedResults collection adds it to the
+                    // realm in an implicit write.
+                    $surveys.append(newSurvey)
+                    // Now we're done with this view, so set the
+                    // ``isInCreateSurveyView`` variable to false to
+                    // return to the SurveysView.
+                    answerText = ""
+                    newSurvey = Survey()
+                    isPresentingAddSurveyView = false
+                }
             }) {
                 HStack {
                     Spacer()
@@ -130,5 +139,12 @@ struct CreateSurveyView: View {
         }
         .scrollContentBackground(.hidden)
         .background(Color("MainBackgroundColor"))
+        .alert(item: $errorMessage) { errorMessage in
+            Alert(
+                title: Text("Failed to create survey"),
+                message: Text(errorMessage.errorText),
+                dismissButton: .cancel()
+            )
+        }
     }
 }
