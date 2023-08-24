@@ -50,72 +50,74 @@ struct SurveyDetailView: View {
                                 Text(answer.answerText)
                                     .font(.subheadline)
                                     .italic()
-//                                    .foregroundColor(.gray)
                                     .listRowBackground(Color("ListItemColor"))
                             }
                         }
                     }
-                    
-                    // Prediction button Section
-                    if survey.status != Status.completed {
-                        if survey.userHasPrediction {
-                            Section {
-                                Button(action: {
-                                    isPresentingViewPredictionView = true
-                                }) {
-                                    HStack {
-                                        Spacer()
-                                        Text("View My Prediction")
-                                        Spacer()
-                                    }
-                                }
-                                .frame(width: 150, height: 50)
-                                .background(Color("CompletedSurveyColor"))
-                                .foregroundColor(.white)
-                                .clipShape(Capsule())
+                }
+                .frame(maxHeight: 500)
+                
+                // Prediction button Section
+                if survey.status != Status.completed {
+                    if survey.userHasPrediction {
+                        Button(action: {
+                            isPresentingViewPredictionView = true
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("View My Prediction")
+                                Spacer()
                             }
                         }
-                        else {
-                            Section {
-                                Button(action: {
-                                    isPresentingSetPredictionView = true
-                                }) {
-                                    HStack {
-                                        Spacer()
-                                        Text("Set Prediction")
-                                        Spacer()
-                                    }
-                                }
+                        .frame(width: 250, height: 50)
+                        .background(Color("CompletedSurveyColor"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .padding(.bottom, 20)
+                    }
+                    else {
+                        Button(action: {
+                            isPresentingSetPredictionView = true
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text("Set Prediction")
+                                Spacer()
                             }
                         }
-                    } else {
-                        Section {
-                            Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
-                                .foregroundColor(.green)
-                        }
-                        Section {
-                            Button(action: {
-                                isPresentingFinalResultsView = true
-                            }) {
-                                HStack {
-                                    Spacer()
-                                    Text("View Final Results")
-                                    Spacer()
-                                }
-                            }
+                        .frame(width: 250, height: 50)
+                        .background(Color("CompletedSurveyColor"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .padding(.bottom, 20)
+                    }
+                } else {
+                    Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
+                        .foregroundColor(.green)
+                    Button(action: {
+                        isPresentingFinalResultsView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("View Final Results")
+                            Spacer()
                         }
                     }
+                    .frame(width: 250, height: 50)
+                    .background(Color("CompletedSurveyColor"))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .padding(.bottom, 20)
                 }
-            } // List
-            .scrollContentBackground(.hidden)
-            .background(Color("MainBackgroundColor"))
-            
-            VStack {
+                
                 Spacer()
                 Image("pineapple-with-sign-alpha")
                     .resizable()
                     .frame(width: 150, height: 150)
-            }
+            } // VStack
+            .scrollContentBackground(.hidden)
+            .background(Color("MainBackgroundColor"))
+            
 //            Text(survey.statusString)
 //                .frame(maxWidth: 300, alignment: .center)
             
