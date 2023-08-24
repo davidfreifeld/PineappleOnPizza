@@ -114,8 +114,9 @@
 				000C733A2A956FE30064729E /* Utils.swift */,
 				917097E727A0600000F1D65B /* Views */,
 			);
-			path = App;
-			sourceTree = "<group>";
+			name = PineappleOnPizza;
+			path = /Users/davidfreifeld/workspace/PineappleOnPizza/PineappleOnPizza;
+			sourceTree = "<absolute>";
 		};
 		913D46502770E46A00ABE7D3 /* Preview Content */ = {
 			isa = PBXGroup;
