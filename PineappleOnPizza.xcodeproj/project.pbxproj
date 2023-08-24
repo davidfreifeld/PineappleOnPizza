@@ -22,6 +22,7 @@
 		000C73372A8FF2670064729E /* FinalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73362A8FF2670064729E /* FinalResultsView.swift */; };
 		000C73392A9451240064729E /* SurveyRowColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73382A9451240064729E /* SurveyRowColorView.swift */; };
 		000C733B2A956FE30064729E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* Utils.swift */; };
+		0050011E2A97A634001343B9 /* AddSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011D2A97A634001343B9 /* AddSurveyView.swift */; };
 		68D3DF5A2942677E005209D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
 		911F548827C6A2BC005D4876 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F548727C6A2BC005D4876 /* AppConfig.swift */; };
 		912196BE27C6868100407648 /* atlasConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 912196BD27C6868100407648 /* atlasConfig.plist */; };
@@ -55,6 +56,7 @@
 		000C73362A8FF2670064729E /* FinalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultsView.swift; sourceTree = "<group>"; };
 		000C73382A9451240064729E /* SurveyRowColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyRowColorView.swift; sourceTree = "<group>"; };
 		000C733A2A956FE30064729E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0050011D2A97A634001343B9 /* AddSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSurveyView.swift; sourceTree = "<group>"; };
 		68D3DF592942677E005209D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		911F548727C6A2BC005D4876 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		912196BD27C6868100407648 /* atlasConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = atlasConfig.plist; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				000C72EC2A8C360A0064729E /* MainView.swift */,
 				000C72EE2A8D33290064729E /* SurveyList.swift */,
 				000C72DE2A870E130064729E /* SurveyRow.swift */,
+				0050011D2A97A634001343B9 /* AddSurveyView.swift */,
 				913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */,
 				000C72EA2A8B29900064729E /* JoinSurveyView.swift */,
 				000C73342A8E8B630064729E /* SurveyQuestionSection.swift */,
@@ -232,6 +235,7 @@
 			files = (
 				000C72ED2A8C360A0064729E /* MainView.swift in Sources */,
 				000C73312A8E7DAB0064729E /* TallyResponseButton.swift in Sources */,
+				0050011E2A97A634001343B9 /* AddSurveyView.swift in Sources */,
 				000C72EB2A8B29900064729E /* JoinSurveyView.swift in Sources */,
 				917097DE27A05F0000F1D65B /* OpenRealmView.swift in Sources */,
 				913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */,

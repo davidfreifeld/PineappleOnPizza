@@ -34,7 +34,6 @@ struct LoginView: View {
             }
             .disabled(isLoggingIn)
             .frame(width: 150, height: 50)
-//            .background(Color(red: 0.25, green: 0.59, blue: 0.22))
             .background(Color("CompletedSurveyColor"))
             .foregroundColor(.white)
             .clipShape(Capsule())

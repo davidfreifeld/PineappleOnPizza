@@ -5,7 +5,7 @@ import RealmSwift
 struct JoinSurveyView: View {
     @State private var surveyCode: String = ""
     @State private var nickname: String = ""
-    @Binding var isPresentingJoinSurveyView: Bool
+    @Binding var isPresentingAddSurveyView: Bool
 
     @ObservedResults(Survey.self) var surveys
     
@@ -14,52 +14,60 @@ struct JoinSurveyView: View {
     @State var errorMessage: ErrorMessage? = nil
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Survey Code", text: $surveyCode)
-                    .onAppear {
-                        UITextField.appearance().clearButtonMode = .whileEditing
-                    }
-            }
-            Section(header: Text("My Nickname (For Scoreboard)")) {
-                TextField("Optional", text: $nickname)
-                    .onAppear {
-                        UITextField.appearance().clearButtonMode = .whileEditing
-                    }
-            }
-            Section {
-                Button(action: {
-                    guard let survey = surveys.first(where: { $0.code == surveyCode.uppercased() }) else {
-                        self.errorMessage = ErrorMessage(errorText: "Could not find survey")
-                        return
-                    }
-                    do {
-                        if survey.thaw()!.userMap.keys.contains(app.currentUser!.id) {
-                            self.errorMessage = ErrorMessage(errorText: "You've already joined this survey!")
-                        } else {
-                            try realm.write {
-//                                survey.thaw()!.users.append(app.currentUser!.id)
-                                survey.thaw()!.userMap[app.currentUser!.id] = nickname
-                                isPresentingJoinSurveyView = false
-                            }
+        VStack {
+            Form {
+                Section("Survey Code") {
+                    TextField("ABC123", text: $surveyCode)
+                        .onAppear {
+                            UITextField.appearance().clearButtonMode = .whileEditing
                         }
-                    } catch {
-                        self.errorMessage = ErrorMessage(errorText: error.localizedDescription)
+                        .listRowBackground(Color("ListItemColor"))
+                }
+                Section(header: Text("My Nickname (For Scoreboard)")) {
+                    TextField("Optional", text: $nickname)
+                        .onAppear {
+                            UITextField.appearance().clearButtonMode = .whileEditing
+                        }
+                        .listRowBackground(Color("ListItemColor"))
+                }
+            } // Form
+
+            Button(action: {
+                guard let survey = surveys.first(where: { $0.code == surveyCode.uppercased() }) else {
+                    self.errorMessage = ErrorMessage(errorText: "Could not find survey")
+                    return
+                }
+                do {
+                    if survey.thaw()!.userMap.keys.contains(app.currentUser!.id) {
+                        self.errorMessage = ErrorMessage(errorText: "You've already joined this survey!")
+                    } else {
+                        try realm.write {
+//                                survey.thaw()!.users.append(app.currentUser!.id)
+                            survey.thaw()!.userMap[app.currentUser!.id] = nickname
+                            isPresentingAddSurveyView = false
+                        }
                     }
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Join Survey")
-                        Spacer()
-                    }
+                } catch {
+                    self.errorMessage = ErrorMessage(errorText: error.localizedDescription)
+                }
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Join Survey")
+                    Spacer()
                 }
             }
-        }
+            .frame(width: 200, height: 60)
+            .background(Color("CompletedSurveyColor"))
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+
+        } // VStack
         .navigationBarTitle("Join Existing Survey")
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {
-                    isPresentingJoinSurveyView = false
+                    isPresentingAddSurveyView = false
                 }
             }
         }

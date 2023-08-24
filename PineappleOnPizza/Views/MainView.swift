@@ -15,8 +15,7 @@ struct MainView: View {
     @EnvironmentObject var errorHandler: ErrorHandler
     
     @State var user: User
-    @State var isPresentingCreateSurveyView = false
-    @State var isPresentingJoinSurveyView = false
+    @State var isPresentingAddSurveyView = false
     
     var body: some View {
         NavigationView {
@@ -25,24 +24,14 @@ struct MainView: View {
             .navigationBarItems(leading: self.leadingBarButton,
                                 trailing: HStack {
                 Button {
-                    isPresentingJoinSurveyView = true
-                } label: {
-                    Image(systemName: "icloud.and.arrow.down") // "person.fill.badge.plus"
-                }
-                Button {
-                    isPresentingCreateSurveyView = true
+                    isPresentingAddSurveyView = true
                 } label: {
                     Image(systemName: "plus")
                 }
             })
-            .sheet(isPresented: $isPresentingJoinSurveyView) {
+            .sheet(isPresented: $isPresentingAddSurveyView) {
                 NavigationView {
-                    JoinSurveyView(isPresentingJoinSurveyView: $isPresentingJoinSurveyView)
-                }
-            }
-            .sheet(isPresented: $isPresentingCreateSurveyView) {
-                NavigationView {
-                    CreateSurveyView(isPresentingCreateSurveyView: $isPresentingCreateSurveyView, user: user)
+                    AddSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView, user: user)
                 }
             }
             .listStyle(InsetGroupedListStyle())
