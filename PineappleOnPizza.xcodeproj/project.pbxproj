@@ -87,7 +87,7 @@
 		913D463E2770E46800ABE7D3 = {
 			isa = PBXGroup;
 			children = (
-				913D46492770E46800ABE7D3 /* App */,
+				913D46492770E46800ABE7D3 /* PineappleOnPizza */,
 				913D46482770E46800ABE7D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		913D46492770E46800ABE7D3 /* App */ = {
+		913D46492770E46800ABE7D3 /* PineappleOnPizza */ = {
 			isa = PBXGroup;
 			children = (
 				911F548727C6A2BC005D4876 /* AppConfig.swift */,
@@ -384,7 +384,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PineappleOnPizza/Preview Content\"";
 				DEVELOPMENT_TEAM = MMVDK47XGJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -416,7 +416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PineappleOnPizza/Preview Content\"";
 				DEVELOPMENT_TEAM = MMVDK47XGJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -23,6 +23,7 @@ struct LoginView: View {
                 .autocorrectionDisabled(true)
             SecureField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
+                .padding(.bottom, 10)
             Button("Log In") {
                 // Button pressed, so log in
                 isLoggingIn = true
