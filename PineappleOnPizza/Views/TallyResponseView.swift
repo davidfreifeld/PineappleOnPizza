@@ -13,27 +13,31 @@ struct TallyResponseView: View {
     // invalidates the view when the Survey object changes.
     @ObservedRealmObject var survey: Survey
     
-    @State private var selection: String?
+    @State private var selection: Answer?
     
     @Binding var isPresentingTallyResponseView: Bool
     
     @Environment(\.realm) private var realm
     
     var body: some View {
-        List(selection: $selection) {
-            SurveyQuestionSection(survey: survey)
-            Section(header: Text("Answers")) {
-                ForEach(survey.answers) { answer in
-                    Button(answer.answerText) {
-                        let thawedAnswer = answer.thaw()
-                        try! realm.write {
-                            thawedAnswer!.currentVotes = thawedAnswer!.currentVotes + 1
-                        }
-                        isPresentingTallyResponseView = false
-                    }
-                    .listRowBackground(Color("ListItemColor"))
+        VStack {
+            List(selection: $selection) {
+                //            SurveyQuestionSection(survey: survey)
+                //            Section(header: Text("Answers")) {
+                ForEach(survey.answers, id: \.self) { answer in
+                    Text(answer.answerText)
+                    //                    Button(answer.answerText) {
+                    //                        let thawedAnswer = answer.thaw()
+                    //                        try! realm.write {
+                    //                            thawedAnswer!.currentVotes = thawedAnswer!.currentVotes + 1
+                    //                        }
+                    //                        isPresentingTallyResponseView = false
+                    //                    }
+                    //                    .listRowBackground(Color("ListItemColor"))
                 }
+                //            }
             }
+            Text(selection != nil ? selection!.answerText : "no selection")
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
