@@ -140,16 +140,7 @@ struct SurveyDetailView: View {
             .background(Color("MainBackgroundColor"))
             
             if showHelpMessage {
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(Color(UIColor.lightGray))
-                    .frame(width: 250, height: 150, alignment: .bottom)
-                    .overlay(
-                        VStack {
-                            Text(survey.statusString).font(.body)
-                        }
-                        .padding()
-                        .multilineTextAlignment(.center)
-                    )
+                PineappleMessageView(message: survey.statusString)
             }
             
         }
@@ -167,7 +158,7 @@ struct SurveyDetailView: View {
             Button {
                 isPresentingOwnerActionsView = true
             } label: {
-                Image(systemName: "gearshape.fill")
+                Image(systemName: "gearshape")
             }
             .disabled(survey.owner_id != app.currentUser?.id)
         })

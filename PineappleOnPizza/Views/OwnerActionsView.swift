@@ -87,8 +87,7 @@ struct OwnerActionsView: View {
                 .clipShape(Capsule())
             }
             Spacer()
-            Text(survey.statusString)
-                .frame(maxWidth: 300, alignment: .center)
+            PineappleMessageView(message: survey.statusString)
         } // VStack
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
