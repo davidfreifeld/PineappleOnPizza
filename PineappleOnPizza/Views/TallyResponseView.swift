@@ -13,12 +13,14 @@ struct TallyResponseView: View {
     // invalidates the view when the Survey object changes.
     @ObservedRealmObject var survey: Survey
     
+    @State private var selection: String?
+    
     @Binding var isPresentingTallyResponseView: Bool
     
     @Environment(\.realm) private var realm
     
     var body: some View {
-        List {
+        List(selection: $selection) {
             SurveyQuestionSection(survey: survey)
             Section(header: Text("Answers")) {
                 ForEach(survey.answers) { answer in

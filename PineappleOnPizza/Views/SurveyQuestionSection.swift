@@ -11,7 +11,13 @@ import RealmSwift
 struct SurveyQuestionSection: View {
     @ObservedRealmObject var survey: Survey
     var body: some View {
-        Section(header: Text("Survey Code: \(survey.code)")) {
+        Section(header: HStack {
+            Text("Survey Code: \(survey.code)")
+            Text("\(survey.status.name)")
+                .background(survey.status.rowColor)
+                .padding(2)
+                .clipShape(Capsule())
+        }) {
             Text(survey.questionText)
                 .font(.headline)
                 .listRowBackground(Color("ListItemColor"))
