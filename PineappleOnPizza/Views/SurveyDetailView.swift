@@ -14,7 +14,7 @@ struct SurveyDetailView: View {
     @State private var isPresentingFinalResultsView = false
     
     var body: some View {
-        ZStack {
+//        ZStack {
             VStack {
                 List {
                     // The title / question
@@ -60,6 +60,23 @@ struct SurveyDetailView: View {
                 }
                 .frame(maxHeight: 500)
                 
+                if survey.status == Status.open {
+                    Button(action: {
+                        isPresentingTallyResponseView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Tally Response")
+                            Spacer()
+                        }
+                    }
+                    .frame(width: 250, height: 50)
+                    .background(Color("CompletedSurveyColor"))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .padding(.bottom, 20)
+                }
+                
                 // Prediction button Section
                 if survey.status != Status.completed {
                     if survey.userHasPrediction {
@@ -72,8 +89,8 @@ struct SurveyDetailView: View {
                                 Spacer()
                             }
                         }
-                        .frame(width: 250, height: 50)
-                        .background(Color("OpenSurveyColor"))
+                        .frame(width: 200, height: 40)
+                        .background(.gray)
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         .padding(.bottom, 20)
@@ -89,7 +106,7 @@ struct SurveyDetailView: View {
                             }
                         }
                         .frame(width: 250, height: 50)
-                        .background(Color("OpenSurveyColor"))
+                        .background(Color("CompletedSurveyColor"))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         .padding(.bottom, 20)
@@ -126,11 +143,11 @@ struct SurveyDetailView: View {
 //            Text(survey.statusString)
 //                .frame(maxWidth: 300, alignment: .center)
             
-            // a floating button for tallying responses, only if it's an Open survey
-            if survey.status == Status.open {
-                TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
-            }
-        } // ZStack
+//            // a floating button for tallying responses, only if it's an Open survey
+//            if survey.status == Status.open {
+//                TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
+//            }
+//        } // ZStack
         
         .navigationBarTitle("Survey")
         .navigationBarItems(trailing:
