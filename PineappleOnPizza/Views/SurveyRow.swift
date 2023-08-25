@@ -15,7 +15,7 @@ struct SurveyRow: View {
 //                        .padding(.trailing, 10)
 //                }
                 if survey.owner_id == app.currentUser?.id {
-                    Image(systemName: "person.badge.key.fill")
+                    Image(systemName: "person.badge.shield.checkmark.fill")
 //                        .foregroundColor(.blue)
 //                        .padding(.trailing, 10)
                 }

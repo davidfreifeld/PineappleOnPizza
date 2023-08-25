@@ -26,7 +26,7 @@ struct OwnerActionsView: View {
                 SurveyQuestionSection(survey: survey)
             }
             .frame(maxHeight: 150)
-            if survey.status == Status.new {
+            if survey.status == Status.new && survey.areAllPredictionsIn {
                 Button(action: {
                     isPresentingConfirmOpenView = true
                 }) {
@@ -36,7 +36,6 @@ struct OwnerActionsView: View {
                         Spacer()
                     }
                 }
-                .disabled(!survey.areAllPredictionsIn)
                 .frame(width: 250, height: 50)
                 .background(Color("CompletedSurveyColor"))
                 .foregroundColor(.white)

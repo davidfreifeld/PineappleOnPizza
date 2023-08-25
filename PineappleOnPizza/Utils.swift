@@ -8,7 +8,7 @@
 import Foundation
 
 struct Utils {
-    static func formatNumber(value: Double, decimalPlaces: Int = 2) -> String {
+    static func formatNumber(value: Double, decimalPlaces: Int = 1) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = decimalPlaces

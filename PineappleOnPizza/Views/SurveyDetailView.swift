@@ -56,9 +56,23 @@ struct SurveyDetailView: View {
                                     .italic()
                                     .listRowBackground(Color("ListItemColor"))
                             }
+                        } // ForEach
+                        if survey.status == Status.completed {
+                            HStack {
+                                Rectangle()
+                                    .frame(width: 15, height: 15)
+                                    .foregroundColor(.black)
+                                Text("Survey result").font(.caption)
+                                Spacer()
+                                Rectangle()
+                                    .frame(width: 15, height: 15)
+                                    .foregroundColor(Color("CompletedSurveyColor"))
+                                Text("My prediction").font(.caption)
+                            }
+                            .listRowBackground(Color("ListItemColor"))
                         }
-                    }
-                }
+                    } // Section "Answers"
+                } // List
                 .frame(maxHeight: 500)
                 
                 if survey.status == Status.open {
@@ -113,6 +127,7 @@ struct SurveyDetailView: View {
                         .padding(.bottom, 20)
                     }
                 } else {
+                    
                     Button(action: {
                         isPresentingFinalResultsView = true
                     }) {
