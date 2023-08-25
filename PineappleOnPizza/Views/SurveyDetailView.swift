@@ -92,8 +92,8 @@ struct SurveyDetailView: View {
                         .padding(.bottom, 20)
                     }
                 } else {
-                    Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
-                        .foregroundColor(.green)
+//                    Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
+//                        .foregroundColor(.green)
                     Button(action: {
                         isPresentingFinalResultsView = true
                     }) {
@@ -111,9 +111,11 @@ struct SurveyDetailView: View {
                 }
                 
                 Spacer()
-                Image("pineapple-with-sign-alpha")
-                    .resizable()
-                    .frame(width: 150, height: 150)
+                if survey.status == Status.completed {
+                    Image("pineapple-thumbs-up-alpha")
+                        .resizable()
+                        .frame(width: 120, height: 150)
+                }
             } // VStack
             .scrollContentBackground(.hidden)
             .background(Color("MainBackgroundColor"))

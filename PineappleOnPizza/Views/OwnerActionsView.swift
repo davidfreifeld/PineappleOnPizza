@@ -24,54 +24,72 @@ struct OwnerActionsView: View {
         VStack {
             List {
                 SurveyQuestionSection(survey: survey)
-                if survey.status == Status.new {
-                    Button(action: {
-                        isPresentingConfirmOpenView = true
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Open Survey")
-                            Spacer()
-                        }
-                    }
-                    .disabled(!survey.areAllPredictionsIn)
-                } else if survey.status == Status.open {
-                    Button(action: {
-                        isPresentingConfirmUnopenView = true
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Unopen Survey")
-                            Spacer()
-                        }
-                    }
-                    if survey.totalVotes >= survey.minVotes {
-                        Button(action: {
-                            isPresentingConfirmCompleteView = true
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("Complete Survey")
-                                Spacer()
-                            }
-                        }
-                    }
-                } else if survey.status == Status.completed {
-                    Button(action: {
-                        isPresentingConfirmReopenView = true
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Reopen Survey")
-                            Spacer()
-                        }
+            }
+            .frame(maxHeight: 150)
+            if survey.status == Status.new {
+                Button(action: {
+                    isPresentingConfirmOpenView = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Open Survey")
+                        Spacer()
                     }
                 }
+                .disabled(!survey.areAllPredictionsIn)
+                .frame(width: 250, height: 50)
+                .background(Color("CompletedSurveyColor"))
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+            } else if survey.status == Status.open {
+                if survey.totalVotes >= survey.minVotes {
+                    Button(action: {
+                        isPresentingConfirmCompleteView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Complete Survey")
+                            Spacer()
+                        }
+                    }
+                    .frame(width: 250, height: 50)
+                    .background(Color("CompletedSurveyColor"))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                }
+                Button(action: {
+                    isPresentingConfirmUnopenView = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Unopen Survey")
+                        Spacer()
+                    }
+                }
+                .frame(width: 150, height: 40)
+                .background(.gray)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+                .padding(.top, 10)
+            } else if survey.status == Status.completed {
+                Button(action: {
+                    isPresentingConfirmReopenView = true
+                }) {
+                    HStack {
+                        Spacer()
+                        Text("Reopen Survey")
+                        Spacer()
+                    }
+                }
+                .frame(width: 150, height: 40)
+                .background(.gray)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
             }
             Spacer()
             Text(survey.statusString)
                 .frame(maxWidth: 300, alignment: .center)
-        }
+        } // VStack
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Dismiss") {

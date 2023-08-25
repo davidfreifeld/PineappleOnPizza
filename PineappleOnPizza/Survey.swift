@@ -52,7 +52,7 @@ class Survey: Object, ObjectKeyIdentifiable {
         for (user_id, _) in self.userMap.asKeyValueSequence() {
             resultsDict[user_id] = getUserFinalScore(user_id: user_id)
         }
-        return Array(resultsDict.keys).sorted() { $0 < $1 }
+        return resultsDict.sorted { $0.1 < $1.1 }.map { $0.0 }
     }
     
     var statusString: String {
