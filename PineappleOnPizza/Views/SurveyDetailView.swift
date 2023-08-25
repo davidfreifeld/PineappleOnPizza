@@ -12,9 +12,10 @@ struct SurveyDetailView: View {
     @State private var isPresentingViewPredictionView = false
     @State private var isPresentingOwnerActionsView = false
     @State private var isPresentingFinalResultsView = false
+    @State private var showHelpMessage = false
     
     var body: some View {
-//        ZStack {
+        ZStack {
             VStack {
                 List {
                     // The title / question
@@ -33,11 +34,11 @@ struct SurveyDetailView: View {
                                             Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
                                         }
                                     }
+                                    .tint(.black)
                                     .listRowBackground(Color("ListItemColor"))
                                     // Show the user's prediction next to the results
                                     if survey.status == Status.completed {
                                         ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
-                                            .tint(.green)
                                             .listRowBackground(Color("ListItemColor"))
                                     }
                                 } else {
@@ -112,8 +113,6 @@ struct SurveyDetailView: View {
                         .padding(.bottom, 20)
                     }
                 } else {
-//                    Text("My error score: \(Utils.formatNumber(value: survey.getUserFinalScore(user_id: app.currentUser!.id)))")
-//                        .foregroundColor(.green)
                     Button(action: {
                         isPresentingFinalResultsView = true
                     }) {
@@ -140,24 +139,38 @@ struct SurveyDetailView: View {
             .scrollContentBackground(.hidden)
             .background(Color("MainBackgroundColor"))
             
-//            Text(survey.statusString)
-//                .frame(maxWidth: 300, alignment: .center)
+            if showHelpMessage {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(Color(UIColor.lightGray))
+                    .frame(width: 250, height: 150, alignment: .bottom)
+                    .overlay(
+                        VStack {
+                            Text(survey.statusString).font(.body)
+                        }
+                        .padding()
+                        .multilineTextAlignment(.center)
+                    )
+            }
             
-//            // a floating button for tallying responses, only if it's an Open survey
-//            if survey.status == Status.open {
-//                TallyResponseButton(isPresentingTallyResponseView: $isPresentingTallyResponseView)
-//            }
-//        } // ZStack
+        }
         
         .navigationBarTitle("Survey")
-        .navigationBarItems(trailing:
+        .navigationBarItems(trailing: HStack {
+            Button {
+                showHelpMessage = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.showHelpMessage = false
+                }
+            } label: {
+                Image(systemName: "questionmark.circle")
+            }
             Button {
                 isPresentingOwnerActionsView = true
             } label: {
                 Image(systemName: "gearshape.fill")
             }
             .disabled(survey.owner_id != app.currentUser?.id)
-        )
+        })
         .sheet(isPresented: $isPresentingTallyResponseView) {
             NavigationView {
                 TallyResponseView(survey: survey, isPresentingTallyResponseView: $isPresentingTallyResponseView)
