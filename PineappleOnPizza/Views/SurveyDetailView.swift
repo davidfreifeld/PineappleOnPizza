@@ -33,10 +33,12 @@ struct SurveyDetailView: View {
                                             Text("\(Int((Double(answer.currentVotes) / Double(survey.totalVotes) * 100).rounded()))%")
                                         }
                                     }
+                                    .listRowBackground(Color("ListItemColor"))
                                     // Show the user's prediction next to the results
                                     if survey.status == Status.completed {
                                         ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
                                             .tint(.green)
+                                            .listRowBackground(Color("ListItemColor"))
                                     }
                                 } else {
                                     HStack {
@@ -44,6 +46,7 @@ struct SurveyDetailView: View {
                                         Spacer()
                                         Text("No votes")
                                     }
+                                    .listRowBackground(Color("ListItemColor"))
                                 }
                                 // if not completed, just show the answer
                             } else {
@@ -70,7 +73,7 @@ struct SurveyDetailView: View {
                             }
                         }
                         .frame(width: 250, height: 50)
-                        .background(Color("CompletedSurveyColor"))
+                        .background(Color("OpenSurveyColor"))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         .padding(.bottom, 20)
@@ -86,7 +89,7 @@ struct SurveyDetailView: View {
                             }
                         }
                         .frame(width: 250, height: 50)
-                        .background(Color("CompletedSurveyColor"))
+                        .background(Color("OpenSurveyColor"))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         .padding(.bottom, 20)
@@ -134,7 +137,7 @@ struct SurveyDetailView: View {
             Button {
                 isPresentingOwnerActionsView = true
             } label: {
-                Image(systemName: "gearshape")
+                Image(systemName: "gearshape.fill")
             }
             .disabled(survey.owner_id != app.currentUser?.id)
         )

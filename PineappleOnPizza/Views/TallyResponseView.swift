@@ -29,6 +29,7 @@ struct TallyResponseView: View {
                         }
                         isPresentingTallyResponseView = false
                     }
+                    .listRowBackground(Color("ListItemColor"))
                 }
             }
         }

@@ -27,6 +27,7 @@ struct ViewPredictionView: View {
                             }
                         }
                     }
+                    .listRowBackground(Color("ListItemColor"))
                 }
             }
         }

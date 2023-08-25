@@ -35,6 +35,7 @@ struct SetPredictionView: View {
                 // This section is for setting a prediction
                 ForEach(0..<survey.answers.count, id: \.self) { answerIndex in
                     Text(survey.answers[answerIndex].answerText)
+                        .listRowBackground(Color("ListItemColor"))
                     HStack {
                         Slider(value: $predictions[answerIndex], in: 0...100, step: 1) {
                             Text("Prediction")
@@ -42,12 +43,14 @@ struct SetPredictionView: View {
                         Spacer()
                         Text("\(Int(predictions[answerIndex]))%")
                     }
+                    .listRowBackground(Color("ListItemColor"))
                 }
                 HStack {
                     Text("Total (Must Be 100% to Submit):")
                     Spacer()
                     Text("\(Int(predictions.reduce(0, +)))%")
                 }
+                .listRowBackground(Color("ListItemColor"))
             }
         }
         .toolbar {

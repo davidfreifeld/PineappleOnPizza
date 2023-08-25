@@ -24,7 +24,7 @@ struct TallyResponseButton: View {
                         .frame(width: 77, height: 70)
                         .foregroundColor(Color.white)
 //                                .padding(.bottom, 7)
-                        .background(Color.blue)
+                        .background(Color("CompletedSurveyColor"))
                 })
                 
                 .clipShape(Circle())
