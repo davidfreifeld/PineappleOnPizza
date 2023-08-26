@@ -13,10 +13,12 @@ struct SurveyQuestionSection: View {
     var body: some View {
         Section(header: HStack {
             Text("Survey Code: \(survey.code)")
-            Text("\(survey.status.name)")
-                .background(survey.status.rowColor)
-                .padding(2)
-                .clipShape(Capsule())
+            if survey.status != Status.completed {
+                Text("\(survey.status.name)")
+                    .background(survey.status.rowColor)
+                    .padding(2)
+                    .clipShape(Capsule())
+            }
         }) {
             Text(survey.questionText)
                 .font(.headline)
