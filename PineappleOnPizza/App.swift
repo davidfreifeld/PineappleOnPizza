@@ -23,9 +23,12 @@ struct realmSwiftUIApp: SwiftUI.App {
                 } message: {
                     Text(errorHandler.error?.localizedDescription ?? "")
                 }
+
+//            // This may or may not be the code to delete a realm
 //                .onAppear() {
 //                    try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 //                }
+
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Utils {
+struct StringUtils {
     static func formatNumber(value: Double, decimalPlaces: Int = 1) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

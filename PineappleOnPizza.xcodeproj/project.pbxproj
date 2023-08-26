@@ -21,7 +21,7 @@
 		000C73352A8E8B630064729E /* SurveyQuestionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73342A8E8B630064729E /* SurveyQuestionSection.swift */; };
 		000C73372A8FF2670064729E /* FinalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73362A8FF2670064729E /* FinalResultsView.swift */; };
 		000C73392A9451240064729E /* SurveyRowColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73382A9451240064729E /* SurveyRowColorView.swift */; };
-		000C733B2A956FE30064729E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* Utils.swift */; };
+		000C733B2A956FE30064729E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* StringUtils.swift */; };
 		0050011E2A97A634001343B9 /* AddSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011D2A97A634001343B9 /* AddSurveyView.swift */; };
 		005001202A9906D3001343B9 /* PineappleMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011F2A9906D3001343B9 /* PineappleMessageView.swift */; };
 		68D3DF5A2942677E005209D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
@@ -56,7 +56,7 @@
 		000C73342A8E8B630064729E /* SurveyQuestionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionSection.swift; sourceTree = "<group>"; };
 		000C73362A8FF2670064729E /* FinalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultsView.swift; sourceTree = "<group>"; };
 		000C73382A9451240064729E /* SurveyRowColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyRowColorView.swift; sourceTree = "<group>"; };
-		000C733A2A956FE30064729E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		000C733A2A956FE30064729E /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		0050011D2A97A634001343B9 /* AddSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSurveyView.swift; sourceTree = "<group>"; };
 		0050011F2A9906D3001343B9 /* PineappleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineappleMessageView.swift; sourceTree = "<group>"; };
 		68D3DF592942677E005209D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				913D465D2770E7DF00ABE7D3 /* Survey.swift */,
 				68D3DF592942677E005209D9 /* Constants.swift */,
 				000C72F22A8D971B0064729E /* Status.swift */,
-				000C733A2A956FE30064729E /* Utils.swift */,
+				000C733A2A956FE30064729E /* StringUtils.swift */,
 				917097E727A0600000F1D65B /* Views */,
 			);
 			name = PineappleOnPizza;
@@ -242,7 +242,7 @@
 				000C72EB2A8B29900064729E /* JoinSurveyView.swift in Sources */,
 				917097DE27A05F0000F1D65B /* OpenRealmView.swift in Sources */,
 				913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */,
-				000C733B2A956FE30064729E /* Utils.swift in Sources */,
+				000C733B2A956FE30064729E /* StringUtils.swift in Sources */,
 				000C73352A8E8B630064729E /* SurveyQuestionSection.swift in Sources */,
 				000C73332A8E8A730064729E /* ViewPredictionView.swift in Sources */,
 				000C72E12A870E130064729E /* SurveyRow.swift in Sources */,
