@@ -19,13 +19,13 @@ struct FinalResultsView: View {
                     ForEach(Array(survey.getFinalScoresSortedUserList().enumerated()), id: \.element) { index, user_id in
                         HStack {
                             if survey.userMap[user_id] == "" {
-                                Text(Utils.getSubstringAtEnd(value: user_id))
+                                Text(StringUtils.getSubstringAtEnd(value: user_id))
                             } else {
                                 Text("\(index+1). \(survey.userMap[user_id]!)")
                             }
                             Text(user_id == app.currentUser!.id ? "(Me)" : "")
                             Spacer()
-                            Text(Utils.formatNumber(value: survey.getUserFinalScore(user_id: user_id)))
+                            Text(StringUtils.formatNumber(value: survey.getUserFinalScore(user_id: user_id)))
                         }
                         .listRowBackground(Color("ListItemColor"))
                         .font(user_id == app.currentUser!.id ? Font.body.weight(.bold) : Font.body.weight(.regular))
