@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "913D46462770E46800ABE7D3"
-               BuildableName = "PineappleOnPizza.app"
+               BuildableName = "Pineapple On Pizza.app"
                BlueprintName = "PineappleOnPizza"
                ReferencedContainer = "container:PineappleOnPizza.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "913D46462770E46800ABE7D3"
-            BuildableName = "PineappleOnPizza.app"
+            BuildableName = "Pineapple On Pizza.app"
             BlueprintName = "PineappleOnPizza"
             ReferencedContainer = "container:PineappleOnPizza.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "913D46462770E46800ABE7D3"
-            BuildableName = "PineappleOnPizza.app"
+            BuildableName = "Pineapple On Pizza.app"
             BlueprintName = "PineappleOnPizza"
             ReferencedContainer = "container:PineappleOnPizza.xcodeproj">
          </BuildableReference>

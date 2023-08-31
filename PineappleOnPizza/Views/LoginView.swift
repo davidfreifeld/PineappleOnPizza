@@ -57,6 +57,7 @@ struct LoginView: View {
         }
         .padding(20)
         .background(Color("MainBackgroundColor"))
+        .preferredColorScheme(.light)
 //        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing) // this (obviously) expands the View to the whole screen
     }
 

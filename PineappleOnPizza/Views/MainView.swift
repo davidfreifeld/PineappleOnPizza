@@ -36,5 +36,6 @@ struct MainView: View {
             }
             .listStyle(InsetGroupedListStyle())
         }
+        .preferredColorScheme(.light)
     }
 }
