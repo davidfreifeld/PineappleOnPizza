@@ -13,21 +13,45 @@ struct NotCompletedSurveyDetailView: View {
     
     var body: some View {
         VStack {
-            List {
-                // The title / question
-                SurveyQuestionSection(survey: survey)
-                
-                // The answers
-                Section(header: Text("Answers")) {
-                    ForEach(survey.answers) { answer in
-                        Text(answer.answerText)
-                            .font(.subheadline)
-                            .italic()
-                            .listRowBackground(Color("ListItemColor"))
-                    } // ForEach
-                } // Section "Answers"
-            } // List
-//            .frame(maxHeight: 500)
+            RoundedRectangle(cornerRadius: 16)
+                .foregroundColor(Color("ListItemColor"))
+                .frame(width: 350, height: 200, alignment: .bottom)
+                .overlay(
+                    VStack(alignment: .leading) {
+                        Label(survey.questionText, systemImage: "questionmark.bubble.fill")
+                        ScrollView(.vertical, showsIndicators: true) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                ForEach(survey.answers) { answer in
+                                    Text("•\t\(answer.answerText)")
+                                        .frame(maxWidth: .infinity,
+                                               alignment: .leading)
+                                } // ForEach
+                            } // VStack
+                            .padding(2)
+                        } // ScrollView
+                        .frame(height: 50)
+                    } // VStack
+                    .padding(20)
+                )
+            
+//            GroupBox(label: Label(survey.questionText, systemImage: "questionmark.bubble.fill")
+//            ) {
+//                ScrollView(.vertical, showsIndicators: true) {
+//                    VStack(alignment: .leading, spacing: 10) {
+//                        ForEach(survey.answers) { answer in
+//                            Text("•\t\(answer.answerText)")
+//                                .frame(maxWidth: .infinity,
+//                                       alignment: .leading)
+//                        } // ForEach
+//                    } // VStack
+//                    .padding(2)
+//                } // ScrollView
+//                .frame(height: 50)
+//            } // GroupBox
+//            .padding(20)
+//            .background(Color("ListRowColor"))
+            
+            Spacer()
             
             if survey.status == Status.open {
                 Button(action: {
@@ -79,8 +103,8 @@ struct NotCompletedSurveyDetailView: View {
                 .clipShape(Capsule())
                 .padding(.bottom, 20)
             }
-        }
-        .scrollContentBackground(.hidden)
+        } // VStack
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("MainBackgroundColor"))
         .sheet(isPresented: $isPresentingTallyResponseView) {
             NavigationView {
