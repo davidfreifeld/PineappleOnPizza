@@ -106,6 +106,18 @@
 			path = SurveyDetail;
 			sourceTree = "<group>";
 		};
+		00D058C22AA2AF36006FE5E6 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				913D464C2770E46800ABE7D3 /* ContentView.swift */,
+				917097DD27A05F0000F1D65B /* OpenRealmView.swift */,
+				913D46612770F0C600ABE7D3 /* LoginView.swift */,
+				917097DB27A05EBC00F1D65B /* LogoutButton.swift */,
+				91DF3EE927AAE18F0020D937 /* ErrorView.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		913D463E2770E46800ABE7D3 = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +163,8 @@
 		917097E727A0600000F1D65B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00D058C22AA2AF36006FE5E6 /* Realm */,
 				00D058B52AA2AEAD006FE5E6 /* SurveyDetail */,
-				913D464C2770E46800ABE7D3 /* ContentView.swift */,
-				917097DD27A05F0000F1D65B /* OpenRealmView.swift */,
-				913D46612770F0C600ABE7D3 /* LoginView.swift */,
-				917097DB27A05EBC00F1D65B /* LogoutButton.swift */,
-				91DF3EE927AAE18F0020D937 /* ErrorView.swift */,
 				000C72EC2A8C360A0064729E /* MainView.swift */,
 				000C72EE2A8D33290064729E /* SurveyList.swift */,
 				000C72DE2A870E130064729E /* SurveyRow.swift */,
