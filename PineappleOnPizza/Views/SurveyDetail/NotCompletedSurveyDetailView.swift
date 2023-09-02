@@ -13,27 +13,41 @@ struct NotCompletedSurveyDetailView: View {
     
     var body: some View {
         VStack {
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundColor(Color("ListItemColor"))
-                .frame(width: 350, height: 200, alignment: .bottom)
-                .overlay(
-                    VStack(alignment: .leading) {
-                        Label(survey.questionText, systemImage: "questionmark.bubble.fill")
-                        ScrollView(.vertical, showsIndicators: true) {
-                            VStack(alignment: .leading, spacing: 10) {
-                                ForEach(survey.answers) { answer in
-                                    Text("•\t\(answer.answerText)")
-                                        .frame(maxWidth: .infinity,
-                                               alignment: .leading)
-                                } // ForEach
-                            } // VStack
-                            .padding(2)
-                        } // ScrollView
-                        .frame(height: 50)
-                    } // VStack
-                    .padding(20)
-                )
             
+            SurveyQuestionInfoView(survey: survey)
+            
+            // ATTEMPT 2
+//            HStack {
+//                Text("\(survey.status.name)")
+//                    .background(survey.status.rowColor)
+//                    .padding(2)
+//                    .clipShape(Capsule())
+//                Text("Survey Code: \(survey.code)")
+//            }
+//            .padding(15)
+//
+//            RoundedRectangle(cornerRadius: 16)
+//                .foregroundColor(Color("ListItemColor"))
+//                .frame(width: 350, height: 400)
+//                .overlay(
+//                    VStack(alignment: .leading) {
+//                        Label(survey.questionText, systemImage: "questionmark.bubble.fill")
+//                        ScrollView(.vertical, showsIndicators: true) {
+//                            VStack(alignment: .leading, spacing: 10) {
+//                                ForEach(survey.answers) { answer in
+//                                    Text("•\t\(answer.answerText)")
+//                                        .frame(maxWidth: .infinity, alignment: .leading)
+//                                } // ForEach
+//                            } // VStack
+//                        } // ScrollView
+//                        .frame(maxHeight: 100)
+//                        .padding(.leading, 30)
+//                    } // VStack
+//                        .padding(.leading, 20)
+////                        .padding(.trailing, 5)
+//                ) // overlay
+            
+            // ATTEMPT 1
 //            GroupBox(label: Label(survey.questionText, systemImage: "questionmark.bubble.fill")
 //            ) {
 //                ScrollView(.vertical, showsIndicators: true) {
@@ -120,6 +134,14 @@ struct NotCompletedSurveyDetailView: View {
             NavigationView {
                 SetPredictionView(survey: survey, isPresentingSetPredictionView: $isPresentingSetPredictionView)
             }
+        }
+    }
+}
+
+struct NotCompletedSurveyDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            NotCompletedSurveyDetailView(survey: Survey.pineapple_open)
         }
     }
 }

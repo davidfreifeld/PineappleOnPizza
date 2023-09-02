@@ -75,7 +75,7 @@ struct SetPredictionView: View {
                     }
                     isPresentingSetPredictionView = false
                 }
-                .disabled(predictions.reduce(0, +) != 100)
+                .disabled(predictions.map { Int($0) }.reduce(0, +) != 100)
             }
         }
         .navigationBarTitle("Survey Prediction", displayMode: .inline)

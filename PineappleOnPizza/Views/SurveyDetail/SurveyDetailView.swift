@@ -50,3 +50,11 @@ struct SurveyDetailView: View {
         }
     }
 }
+
+struct SurveyDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SurveyDetailView(survey: Survey.pineapple_open)
+        }
+    }
+}

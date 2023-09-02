@@ -68,7 +68,41 @@ class Survey: Object, ObjectKeyIdentifiable {
             return "This survey is completed, and you can view the results!"
         }
     }
+}
 
+extension Survey {
+    static let pineapple_open = Survey(value: [
+        "owner_id": "abc123",
+        "questionText": "Do you like pineapple on pizza?",
+        "answers": [
+            Answer(value: [
+                "answerText": "Yes",
+                "currentVotes": 0,
+                "predictions": List<Prediction>()
+            ]),
+            Answer(value: [
+                "answerText": "No",
+                "currentVotes": 0,
+                "predictions": List<Prediction>()
+            ]),
+            Answer(value: [
+                "answerText": "Kind of",
+                "currentVotes": 0,
+                "predictions": List<Prediction>()
+            ]),
+            Answer(value: [
+                "answerText": "I'm not sure",
+                "currentVotes": 0,
+                "predictions": List<Prediction>()
+            ])
+            
+        ],
+        "status": Status.open,
+        "code": "XYZ456",
+        "userMap": Map<String, String>(),
+        "minVotes": 2
+    ])
+    
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {
