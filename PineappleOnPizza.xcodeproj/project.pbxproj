@@ -67,7 +67,7 @@
 		00D058C02AA2AEDB006FE5E6 /* SurveyQuestionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionSection.swift; sourceTree = "<group>"; };
 		68D3DF592942677E005209D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		911F548727C6A2BC005D4876 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		912196BD27C6868100407648 /* atlasConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = atlasConfig.plist; sourceTree = "<group>"; };
+		912196BD27C6868100407648 /* atlasConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = atlasConfig.plist; path = PineappleOnPizza/atlasConfig.plist; sourceTree = "<group>"; };
 		913D46472770E46800ABE7D3 /* Pineapple On Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pineapple On Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		913D464A2770E46800ABE7D3 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		913D464C2770E46800ABE7D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 		913D463E2770E46800ABE7D3 = {
 			isa = PBXGroup;
 			children = (
+				912196BD27C6868100407648 /* atlasConfig.plist */,
 				913D46492770E46800ABE7D3 /* PineappleOnPizza */,
 				913D46482770E46800ABE7D3 /* Products */,
 			);
@@ -165,7 +166,6 @@
 				911F548727C6A2BC005D4876 /* AppConfig.swift */,
 				913D464E2770E46A00ABE7D3 /* Assets.xcassets */,
 				913D46502770E46A00ABE7D3 /* Preview Content */,
-				912196BD27C6868100407648 /* atlasConfig.plist */,
 				913D464A2770E46800ABE7D3 /* App.swift */,
 				913D465D2770E7DF00ABE7D3 /* Survey.swift */,
 				68D3DF592942677E005209D9 /* Constants.swift */,
