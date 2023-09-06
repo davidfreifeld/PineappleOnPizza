@@ -78,7 +78,7 @@ struct SetPredictionView: View {
                 .disabled(predictions.map { Int($0) }.reduce(0, +) != 100)
             }
         }
-        .navigationBarTitle("Survey Prediction", displayMode: .inline)
+        .navigationBarTitle("My Survey Prediction", displayMode: .inline)
         .scrollContentBackground(.hidden)
         .background(Color("MainBackgroundColor"))
     }

@@ -79,29 +79,29 @@ extension Survey {
                 "answerText": "Yes",
                 "currentVotes": 0,
                 "predictions": List<Prediction>()
-            ]),
+            ] as [String: Any]),
             Answer(value: [
                 "answerText": "No",
                 "currentVotes": 0,
                 "predictions": List<Prediction>()
-            ]),
+            ] as [String: Any]),
             Answer(value: [
                 "answerText": "Kind of",
                 "currentVotes": 0,
                 "predictions": List<Prediction>()
-            ]),
+            ] as [String: Any]),
             Answer(value: [
                 "answerText": "I'm not sure",
                 "currentVotes": 0,
                 "predictions": List<Prediction>()
-            ])
+            ] as [String: Any])
             
         ],
         "status": Status.open,
         "code": "XYZ456",
         "userMap": Map<String, String>(),
         "minVotes": 2
-    ])
+    ] as [String: Any])
     
 }
 

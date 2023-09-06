@@ -13,6 +13,10 @@ struct PineappleMessageView: View {
         RoundedRectangle(cornerRadius: 16)
             .foregroundColor(Color(UIColor.lightGray))
             .frame(width: 350, height: 200, alignment: .bottom)
+            .shadow(color: Color.black.opacity(0.3),
+                    radius: 3,
+                    x: 3,
+                    y: 3)
             .overlay(
                 ZStack {
                     Image("pineapple-with-sign-long-alpha")
@@ -28,10 +32,6 @@ struct PineappleMessageView: View {
                 .padding()
                 .multilineTextAlignment(.center)
             )
-            .shadow(color: Color.black.opacity(0.3),
-                    radius: 3,
-                    x: 3,
-                    y: 3)
     }
 }
 

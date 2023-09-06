@@ -31,8 +31,14 @@ struct TallyResponseView: View {
             List(selection: $selection) {
                 Section(header: Text("Answers")) {
                     ForEach(survey.answers, id: \.self) { answer in
-                        Label(answer.answerText, systemImage: selection != nil && selection!.id == answer.id ? "checkmark.circle.fill" : "circle")
-                            .listRowBackground(Color("ListItemColor"))
+                        if selection != nil && selection!.id == answer.id {
+                            Label("**\(answer.answerText)**", systemImage: selection != nil && selection!.id == answer.id ? "checkmark.circle.fill" : "circle")
+                                .listRowBackground(Color("ListItemColor"))
+                        } else {
+                            Label(answer.answerText, systemImage: selection != nil && selection!.id == answer.id ? "checkmark.circle.fill" : "circle")
+                                .listRowBackground(Color("ListItemColor"))
+                        }
+                        
                     } // ForEach
                 } // Section "Answers"
             } // List - Answers
