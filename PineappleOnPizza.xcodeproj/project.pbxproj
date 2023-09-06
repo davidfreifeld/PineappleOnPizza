@@ -45,21 +45,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		000C72DE2A870E130064729E /* SurveyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyRow.swift; sourceTree = "<group>"; };
-		000C72E42A871A440064729E /* TallyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyResponseView.swift; sourceTree = "<group>"; };
-		000C72E82A8ACD810064729E /* SetPredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPredictionView.swift; sourceTree = "<group>"; };
-		000C72EA2A8B29900064729E /* JoinSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSurveyView.swift; sourceTree = "<group>"; };
-		000C72EC2A8C360A0064729E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		000C72EE2A8D33290064729E /* SurveyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyList.swift; sourceTree = "<group>"; };
+		000C72DE2A870E130064729E /* SurveyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SurveyRow.swift; path = PineappleOnPizza/Views/Components/SurveyRow.swift; sourceTree = SOURCE_ROOT; };
+		000C72E42A871A440064729E /* TallyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TallyResponseView.swift; path = PineappleOnPizza/Views/Actions/TallyResponseView.swift; sourceTree = SOURCE_ROOT; };
+		000C72E82A8ACD810064729E /* SetPredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetPredictionView.swift; path = PineappleOnPizza/Views/Actions/SetPredictionView.swift; sourceTree = SOURCE_ROOT; };
+		000C72EA2A8B29900064729E /* JoinSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinSurveyView.swift; path = PineappleOnPizza/Views/Actions/JoinSurveyView.swift; sourceTree = SOURCE_ROOT; };
+		000C72EC2A8C360A0064729E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = PineappleOnPizza/Views/MainView.swift; sourceTree = SOURCE_ROOT; };
+		000C72EE2A8D33290064729E /* SurveyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurveyList.swift; path = PineappleOnPizza/Views/SurveyList.swift; sourceTree = SOURCE_ROOT; };
 		000C72F22A8D971B0064729E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
-		000C732E2A8E752B0064729E /* OwnerActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerActionsView.swift; sourceTree = "<group>"; };
-		000C73302A8E7DAB0064729E /* TallyResponseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TallyResponseButton.swift; sourceTree = "<group>"; };
-		000C73322A8E8A730064729E /* ViewPredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPredictionView.swift; sourceTree = "<group>"; };
-		000C73362A8FF2670064729E /* FinalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultsView.swift; sourceTree = "<group>"; };
-		000C73382A9451240064729E /* SurveyRowColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyRowColorView.swift; sourceTree = "<group>"; };
+		000C732E2A8E752B0064729E /* OwnerActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OwnerActionsView.swift; path = PineappleOnPizza/Views/Actions/OwnerActionsView.swift; sourceTree = SOURCE_ROOT; };
+		000C73302A8E7DAB0064729E /* TallyResponseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TallyResponseButton.swift; path = PineappleOnPizza/Views/Actions/TallyResponseButton.swift; sourceTree = SOURCE_ROOT; };
+		000C73322A8E8A730064729E /* ViewPredictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewPredictionView.swift; path = PineappleOnPizza/Views/Actions/ViewPredictionView.swift; sourceTree = SOURCE_ROOT; };
+		000C73362A8FF2670064729E /* FinalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinalResultsView.swift; path = PineappleOnPizza/Views/FinalResultsView.swift; sourceTree = SOURCE_ROOT; };
+		000C73382A9451240064729E /* SurveyRowColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurveyRowColorView.swift; path = PineappleOnPizza/Views/Components/SurveyRowColorView.swift; sourceTree = SOURCE_ROOT; };
 		000C733A2A956FE30064729E /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
-		0050011D2A97A634001343B9 /* AddSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSurveyView.swift; sourceTree = "<group>"; };
-		0050011F2A9906D3001343B9 /* PineappleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PineappleMessageView.swift; sourceTree = "<group>"; };
+		0050011D2A97A634001343B9 /* AddSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddSurveyView.swift; path = PineappleOnPizza/Views/Actions/AddSurveyView.swift; sourceTree = SOURCE_ROOT; };
+		0050011F2A9906D3001343B9 /* PineappleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PineappleMessageView.swift; path = PineappleOnPizza/Views/Components/PineappleMessageView.swift; sourceTree = SOURCE_ROOT; };
 		00D058B82AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedSurveyDetailView.swift; sourceTree = "<group>"; };
 		00D058BA2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotCompletedSurveyDetailView.swift; sourceTree = "<group>"; };
 		00D058BC2AA2AED6006FE5E6 /* SurveyQuestionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionInfoView.swift; sourceTree = "<group>"; };
@@ -70,15 +70,15 @@
 		912196BD27C6868100407648 /* atlasConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = atlasConfig.plist; path = PineappleOnPizza/atlasConfig.plist; sourceTree = "<group>"; };
 		913D46472770E46800ABE7D3 /* Pineapple On Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pineapple On Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		913D464A2770E46800ABE7D3 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		913D464C2770E46800ABE7D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		913D464C2770E46800ABE7D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = PineappleOnPizza/Views/Realm/ContentView.swift; sourceTree = SOURCE_ROOT; };
 		913D464E2770E46A00ABE7D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		913D46512770E46A00ABE7D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		913D465D2770E7DF00ABE7D3 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
-		913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSurveyView.swift; sourceTree = "<group>"; };
-		913D46612770F0C600ABE7D3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		917097DB27A05EBC00F1D65B /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
-		917097DD27A05F0000F1D65B /* OpenRealmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRealmView.swift; sourceTree = "<group>"; };
-		91DF3EE927AAE18F0020D937 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateSurveyView.swift; path = PineappleOnPizza/Views/Actions/CreateSurveyView.swift; sourceTree = SOURCE_ROOT; };
+		913D46612770F0C600ABE7D3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = PineappleOnPizza/Views/Realm/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		917097DB27A05EBC00F1D65B /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogoutButton.swift; path = PineappleOnPizza/Views/Realm/LogoutButton.swift; sourceTree = SOURCE_ROOT; };
+		917097DD27A05F0000F1D65B /* OpenRealmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenRealmView.swift; path = PineappleOnPizza/Views/Realm/OpenRealmView.swift; sourceTree = SOURCE_ROOT; };
+		91DF3EE927AAE18F0020D937 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = PineappleOnPizza/Views/Realm/ErrorView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
