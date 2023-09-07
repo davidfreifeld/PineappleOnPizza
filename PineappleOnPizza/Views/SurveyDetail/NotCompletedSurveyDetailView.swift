@@ -14,9 +14,12 @@ struct NotCompletedSurveyDetailView: View {
     var body: some View {
         VStack {
             
-            SurveyQuestionInfoView(survey: survey)
-            
-            Spacer()
+            List {
+                SurveyQuestionSection(survey: survey)
+            }
+            .scrollContentBackground(.hidden)
+            .background(Color("MainBackgroundColor"))
+            .frame(maxHeight: 150)
             
             if survey.status == Status.open {
                 Button(action: {
@@ -68,6 +71,7 @@ struct NotCompletedSurveyDetailView: View {
                 .clipShape(Capsule())
                 .padding(.bottom, 20)
             }
+            Spacer()
         } // VStack
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("MainBackgroundColor"))

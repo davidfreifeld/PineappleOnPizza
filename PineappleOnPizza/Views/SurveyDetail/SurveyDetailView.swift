@@ -24,7 +24,6 @@ struct SurveyDetailView: View {
                 PineappleMessageView(message: survey.statusString)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("MainBackgroundColor"))
         .navigationBarTitle("Survey")
         .navigationBarItems(trailing: HStack {
