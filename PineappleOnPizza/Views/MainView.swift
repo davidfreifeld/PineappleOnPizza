@@ -24,7 +24,6 @@ struct MainView: View {
                     isPresentingAddSurveyView = true
                 } label: {
                     Image(systemName: "plus.square.on.square") //note.text.badge.plus //plus //plus.app
-                        .
                 },
                                 trailing: LogoutButton()
             )
