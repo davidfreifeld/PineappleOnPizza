@@ -23,7 +23,11 @@ struct LogoutButton: View {
                 isLoggingOut = false
             }
         } label: {
-            Image(systemName: "rectangle.portrait.and.arrow.right")
+            VStack {
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+                Text("Logout")
+                    .font(.caption)
+            }
         }.disabled(app.currentUser == nil || isLoggingOut)
         // Show an alert if there is an error during logout
         .alert(item: $errorMessage) { errorMessage in
