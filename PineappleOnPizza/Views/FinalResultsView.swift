@@ -15,7 +15,7 @@ struct FinalResultsView: View {
         VStack {
             List {
                 SurveyQuestionSection(survey: survey)
-                Section(header: Text("Scoreboard")) {
+                Section(header: Text("Error Scores (Lower is better)")) {
                     ForEach(Array(survey.getFinalScoresSortedUserList().enumerated()), id: \.element) { index, user_id in
                         HStack {
                             if survey.userMap[user_id] == "" {
