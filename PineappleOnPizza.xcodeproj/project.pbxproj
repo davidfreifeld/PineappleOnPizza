@@ -7,41 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000C72E12A870E130064729E /* SurveyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72DE2A870E130064729E /* SurveyRow.swift */; };
-		000C72E52A871A440064729E /* TallyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E42A871A440064729E /* TallyResponseView.swift */; };
-		000C72E92A8ACD810064729E /* SetPredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E82A8ACD810064729E /* SetPredictionView.swift */; };
-		000C72EB2A8B29900064729E /* JoinSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EA2A8B29900064729E /* JoinSurveyView.swift */; };
-		000C72ED2A8C360A0064729E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EC2A8C360A0064729E /* MainView.swift */; };
-		000C72EF2A8D33290064729E /* SurveyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EE2A8D33290064729E /* SurveyList.swift */; };
-		000C72F32A8D971B0064729E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72F22A8D971B0064729E /* Status.swift */; };
-		000C732F2A8E752B0064729E /* OwnerActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C732E2A8E752B0064729E /* OwnerActionsView.swift */; };
-		000C73312A8E7DAB0064729E /* TallyResponseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73302A8E7DAB0064729E /* TallyResponseButton.swift */; };
-		000C73332A8E8A730064729E /* ViewPredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73322A8E8A730064729E /* ViewPredictionView.swift */; };
-		000C73372A8FF2670064729E /* FinalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73362A8FF2670064729E /* FinalResultsView.swift */; };
-		000C73392A9451240064729E /* SurveyRowColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73382A9451240064729E /* SurveyRowColorView.swift */; };
-		000C733B2A956FE30064729E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* StringUtils.swift */; };
-		0050011E2A97A634001343B9 /* AddSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011D2A97A634001343B9 /* AddSurveyView.swift */; };
-		005001202A9906D3001343B9 /* PineappleMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011F2A9906D3001343B9 /* PineappleMessageView.swift */; };
-		00D058B92AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058B82AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift */; };
-		00D058BB2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BA2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift */; };
-		00D058BD2AA2AED6006FE5E6 /* SurveyQuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BC2AA2AED6006FE5E6 /* SurveyQuestionInfoView.swift */; };
-		00D058BF2AA2AED9006FE5E6 /* SurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BE2AA2AED9006FE5E6 /* SurveyDetailView.swift */; };
-		00D058C12AA2AEDB006FE5E6 /* SurveyQuestionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058C02AA2AEDB006FE5E6 /* SurveyQuestionSection.swift */; };
-		68D3DF5A2942677E005209D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
-		911F548827C6A2BC005D4876 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F548727C6A2BC005D4876 /* AppConfig.swift */; };
+		00C7815D2AA94D31008CD67B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F548727C6A2BC005D4876 /* AppConfig.swift */; };
+		00C7815E2AA94D3B008CD67B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D464A2770E46800ABE7D3 /* App.swift */; };
+		00C7815F2AA94D3F008CD67B /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D465D2770E7DF00ABE7D3 /* Survey.swift */; };
+		00C781602AA94D45008CD67B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
+		00C781612AA94D45008CD67B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72F22A8D971B0064729E /* Status.swift */; };
+		00C781622AA94D45008CD67B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* StringUtils.swift */; };
+		00C781632AA94D49008CD67B /* AddSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011D2A97A634001343B9 /* AddSurveyView.swift */; };
+		00C781642AA94D49008CD67B /* CreateSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */; };
+		00C781652AA94D49008CD67B /* JoinSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EA2A8B29900064729E /* JoinSurveyView.swift */; };
+		00C781662AA94D49008CD67B /* SetPredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E82A8ACD810064729E /* SetPredictionView.swift */; };
+		00C781672AA94D49008CD67B /* ViewPredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73322A8E8A730064729E /* ViewPredictionView.swift */; };
+		00C781682AA94D49008CD67B /* TallyResponseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73302A8E7DAB0064729E /* TallyResponseButton.swift */; };
+		00C781692AA94D49008CD67B /* TallyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E42A871A440064729E /* TallyResponseView.swift */; };
+		00C7816A2AA94D49008CD67B /* OwnerActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C732E2A8E752B0064729E /* OwnerActionsView.swift */; };
+		00C7816B2AA94D4E008CD67B /* SurveyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72DE2A870E130064729E /* SurveyRow.swift */; };
+		00C7816C2AA94D4E008CD67B /* SurveyRowColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73382A9451240064729E /* SurveyRowColorView.swift */; };
+		00C7816D2AA94D4E008CD67B /* PineappleMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011F2A9906D3001343B9 /* PineappleMessageView.swift */; };
+		00C7816E2AA94D51008CD67B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D464C2770E46800ABE7D3 /* ContentView.swift */; };
+		00C7816F2AA94D51008CD67B /* OpenRealmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917097DD27A05F0000F1D65B /* OpenRealmView.swift */; };
+		00C781702AA94D51008CD67B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D46612770F0C600ABE7D3 /* LoginView.swift */; };
+		00C781712AA94D51008CD67B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917097DB27A05EBC00F1D65B /* LogoutButton.swift */; };
+		00C781722AA94D51008CD67B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DF3EE927AAE18F0020D937 /* ErrorView.swift */; };
+		00C781732AA94D55008CD67B /* SurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BE2AA2AED9006FE5E6 /* SurveyDetailView.swift */; };
+		00C781742AA94D55008CD67B /* NotCompletedSurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BA2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift */; };
+		00C781752AA94D55008CD67B /* CompletedSurveyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058B82AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift */; };
+		00C781762AA94D55008CD67B /* SurveyQuestionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058BC2AA2AED6006FE5E6 /* SurveyQuestionInfoView.swift */; };
+		00C781772AA94D55008CD67B /* SurveyQuestionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D058C02AA2AEDB006FE5E6 /* SurveyQuestionSection.swift */; };
+		00C781782AA94D5A008CD67B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EC2A8C360A0064729E /* MainView.swift */; };
+		00C781792AA94D5A008CD67B /* SurveyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EE2A8D33290064729E /* SurveyList.swift */; };
+		00C7817A2AA94D5A008CD67B /* FinalResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C73362A8FF2670064729E /* FinalResultsView.swift */; };
 		912196BE27C6868100407648 /* atlasConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 912196BD27C6868100407648 /* atlasConfig.plist */; };
-		913D464B2770E46800ABE7D3 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D464A2770E46800ABE7D3 /* App.swift */; };
-		913D464D2770E46800ABE7D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D464C2770E46800ABE7D3 /* ContentView.swift */; };
 		913D464F2770E46A00ABE7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913D464E2770E46A00ABE7D3 /* Assets.xcassets */; };
 		913D46522770E46A00ABE7D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913D46512770E46A00ABE7D3 /* Preview Assets.xcassets */; };
-		913D465E2770E7DF00ABE7D3 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D465D2770E7DF00ABE7D3 /* Survey.swift */; };
-		913D46602770E94500ABE7D3 /* CreateSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */; };
-		913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D46612770F0C600ABE7D3 /* LoginView.swift */; };
 		915E413A284937E700D7C234 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 915E4139284937E700D7C234 /* Realm */; };
 		915E413C284937E700D7C234 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 915E413B284937E700D7C234 /* RealmSwift */; };
-		917097DC27A05EBC00F1D65B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917097DB27A05EBC00F1D65B /* LogoutButton.swift */; };
-		917097DE27A05F0000F1D65B /* OpenRealmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917097DD27A05F0000F1D65B /* OpenRealmView.swift */; };
-		91DF3EEA27AAE18F0020D937 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DF3EE927AAE18F0020D937 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -277,36 +277,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				000C72ED2A8C360A0064729E /* MainView.swift in Sources */,
-				000C73312A8E7DAB0064729E /* TallyResponseButton.swift in Sources */,
-				0050011E2A97A634001343B9 /* AddSurveyView.swift in Sources */,
-				000C72EB2A8B29900064729E /* JoinSurveyView.swift in Sources */,
-				917097DE27A05F0000F1D65B /* OpenRealmView.swift in Sources */,
-				913D46622770F0C600ABE7D3 /* LoginView.swift in Sources */,
-				000C733B2A956FE30064729E /* StringUtils.swift in Sources */,
-				000C73332A8E8A730064729E /* ViewPredictionView.swift in Sources */,
-				000C72E12A870E130064729E /* SurveyRow.swift in Sources */,
-				000C72F32A8D971B0064729E /* Status.swift in Sources */,
-				917097DC27A05EBC00F1D65B /* LogoutButton.swift in Sources */,
-				000C72EF2A8D33290064729E /* SurveyList.swift in Sources */,
-				913D464D2770E46800ABE7D3 /* ContentView.swift in Sources */,
-				00D058B92AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift in Sources */,
-				91DF3EEA27AAE18F0020D937 /* ErrorView.swift in Sources */,
-				00D058BB2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift in Sources */,
-				005001202A9906D3001343B9 /* PineappleMessageView.swift in Sources */,
-				000C72E52A871A440064729E /* TallyResponseView.swift in Sources */,
-				00D058BF2AA2AED9006FE5E6 /* SurveyDetailView.swift in Sources */,
-				913D465E2770E7DF00ABE7D3 /* Survey.swift in Sources */,
-				911F548827C6A2BC005D4876 /* AppConfig.swift in Sources */,
-				000C72E92A8ACD810064729E /* SetPredictionView.swift in Sources */,
-				68D3DF5A2942677E005209D9 /* Constants.swift in Sources */,
-				000C73392A9451240064729E /* SurveyRowColorView.swift in Sources */,
-				000C73372A8FF2670064729E /* FinalResultsView.swift in Sources */,
-				00D058C12AA2AEDB006FE5E6 /* SurveyQuestionSection.swift in Sources */,
-				913D464B2770E46800ABE7D3 /* App.swift in Sources */,
-				000C732F2A8E752B0064729E /* OwnerActionsView.swift in Sources */,
-				00D058BD2AA2AED6006FE5E6 /* SurveyQuestionInfoView.swift in Sources */,
-				913D46602770E94500ABE7D3 /* CreateSurveyView.swift in Sources */,
+				00C781782AA94D5A008CD67B /* MainView.swift in Sources */,
+				00C781792AA94D5A008CD67B /* SurveyList.swift in Sources */,
+				00C7817A2AA94D5A008CD67B /* FinalResultsView.swift in Sources */,
+				00C781732AA94D55008CD67B /* SurveyDetailView.swift in Sources */,
+				00C781742AA94D55008CD67B /* NotCompletedSurveyDetailView.swift in Sources */,
+				00C781752AA94D55008CD67B /* CompletedSurveyDetailView.swift in Sources */,
+				00C781762AA94D55008CD67B /* SurveyQuestionInfoView.swift in Sources */,
+				00C781772AA94D55008CD67B /* SurveyQuestionSection.swift in Sources */,
+				00C7816E2AA94D51008CD67B /* ContentView.swift in Sources */,
+				00C7816F2AA94D51008CD67B /* OpenRealmView.swift in Sources */,
+				00C781702AA94D51008CD67B /* LoginView.swift in Sources */,
+				00C781712AA94D51008CD67B /* LogoutButton.swift in Sources */,
+				00C781722AA94D51008CD67B /* ErrorView.swift in Sources */,
+				00C7816B2AA94D4E008CD67B /* SurveyRow.swift in Sources */,
+				00C7816C2AA94D4E008CD67B /* SurveyRowColorView.swift in Sources */,
+				00C7816D2AA94D4E008CD67B /* PineappleMessageView.swift in Sources */,
+				00C781632AA94D49008CD67B /* AddSurveyView.swift in Sources */,
+				00C781642AA94D49008CD67B /* CreateSurveyView.swift in Sources */,
+				00C781652AA94D49008CD67B /* JoinSurveyView.swift in Sources */,
+				00C781662AA94D49008CD67B /* SetPredictionView.swift in Sources */,
+				00C781672AA94D49008CD67B /* ViewPredictionView.swift in Sources */,
+				00C781682AA94D49008CD67B /* TallyResponseButton.swift in Sources */,
+				00C781692AA94D49008CD67B /* TallyResponseView.swift in Sources */,
+				00C7816A2AA94D49008CD67B /* OwnerActionsView.swift in Sources */,
+				00C781602AA94D45008CD67B /* Constants.swift in Sources */,
+				00C781612AA94D45008CD67B /* Status.swift in Sources */,
+				00C781622AA94D45008CD67B /* StringUtils.swift in Sources */,
+				00C7815F2AA94D3F008CD67B /* Survey.swift in Sources */,
+				00C7815E2AA94D3B008CD67B /* App.swift in Sources */,
+				00C7815D2AA94D31008CD67B /* AppConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +371,7 @@
 				PRODUCT_NAME = "Pineapple On Pizza";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
