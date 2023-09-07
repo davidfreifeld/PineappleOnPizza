@@ -9,8 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct MainView: View {
-    var leadingBarButton: AnyView?
-    
     @ObservedResults(Survey.self) var surveys
     @EnvironmentObject var errorHandler: ErrorHandler
     
@@ -21,14 +19,15 @@ struct MainView: View {
         NavigationView {
             SurveyList()
             .navigationBarTitle("Surveys"/*, displayMode: .inline*/)
-            .navigationBarItems(leading: self.leadingBarButton,
-                                trailing: HStack {
+            .navigationBarItems(leading:
                 Button {
                     isPresentingAddSurveyView = true
                 } label: {
-                    Image(systemName: "plus")
-                }
-            })
+                    Image(systemName: "plus.square.on.square") //note.text.badge.plus //plus //plus.app
+                        .
+                },
+                                trailing: LogoutButton()
+            )
             .sheet(isPresented: $isPresentingAddSurveyView) {
                 NavigationView {
                     AddSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView, user: user)

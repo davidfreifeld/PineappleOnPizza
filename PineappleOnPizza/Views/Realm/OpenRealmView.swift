@@ -26,7 +26,7 @@ struct OpenRealmView: View {
         case .open(let realm):
             // The realm has been opened and is ready for use.
             // Show the Main view.
-            MainView(leadingBarButton: AnyView(LogoutButton()), user: user)
+            MainView(user: user)
                 .environment(\.realm, realm)
         case .progress(let progress):
             // The realm is currently being downloaded from the server.
