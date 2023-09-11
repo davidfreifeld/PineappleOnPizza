@@ -21,14 +21,18 @@ struct FinalResultsView: View {
                     ForEach(Array(survey.getFinalScoresSortedUserList().enumerated()), id: \.self.0) { index, tuple in
                         HStack {
                             Text("\(index+1).")
-                            if survey.userMap[tuple.    0] == "" {
+                            if survey.userMap[tuple.0] == "" {
                                 Text(StringUtils.getSubstringAtEnd(value: tuple.0))
                             } else {
                                 Text(survey.userMap[tuple.0]!)
                             }
                             Text(tuple.0 == app.currentUser!.id ? "(Me)" : "")
                             Spacer()
-                            Text(StringUtils.formatNumber(value: tuple.1!))
+                            if tuple.1 == nil {
+                                Text("N/A")
+                            } else {
+                                Text(StringUtils.formatNumber(value: tuple.1!))
+                            }
                         }
                         .listRowBackground(Color("ListItemColor"))
                         .font(tuple.0 == app.currentUser!.id ? Font.body.weight(.bold) : Font.body.weight(.regular))
