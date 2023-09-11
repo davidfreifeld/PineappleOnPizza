@@ -9,6 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct ViewPredictionView: View {
+    
     @ObservedRealmObject var survey: Survey
     
     @Binding var isPresentingViewPredictionView: Bool
@@ -18,17 +19,23 @@ struct ViewPredictionView: View {
             SurveyQuestionSection(survey: survey)
             Section(header: Text("Answers")) {
                 ForEach(survey.answers) { answer in
-                    HStack {
-                        ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100)) {
+                    if let userPrediction = answer.getUserPrediction(user_id: app.currentUser!.id) {
+                        ProgressView(value: userPrediction) {
                             HStack {
                                 Text(answer.answerText)
                                 Spacer()
-                                Text("\(Int(answer.getUserPrediction(user_id: app.currentUser!.id)))%")
+                                Text("\(Int(userPrediction))%")
                             }
                         }
+                    } else {
+                        HStack {
+                            Text(answer.answerText)
+                            Spacer()
+                            Text("N/A")
+                        }
                     }
-                    .listRowBackground(Color("ListItemColor"))
                 }
+                .listRowBackground(Color("ListItemColor"))
             }
         }
         .toolbar {

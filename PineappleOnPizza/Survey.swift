@@ -8,6 +8,10 @@
 import Foundation
 import RealmSwift
 
+//enum SurveyError: Error {
+//    case userPredictionNotFound
+//}
+
 class Survey: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var owner_id: String
@@ -25,7 +29,7 @@ class Survey: Object, ObjectKeyIdentifiable {
     }
     
     var areAllPredictionsIn: Bool {
-        for (user, _) in userMap.asKeyValueSequence() {
+        for user in userMap.keys {
             if !self.answers[0].predictions.contains(where: { $0.user_id == user }) {
                 return false
             }
@@ -34,25 +38,38 @@ class Survey: Object, ObjectKeyIdentifiable {
     }
     
     var userHasPrediction: Bool {
-        self.answers.first!.predictions.contains(where: { $0.user_id == app.currentUser?.id })
+        self.answers[0].predictions.contains(where: { $0.user_id == app.currentUser?.id })
     }
     
-    func getUserFinalScore(user_id: String) -> Double {
+    // uses root mean squared error to give the user a final score
+    func getUserFinalScore(user_id: String) -> Double? {
         var totalError = 0.0
         for answer in self.answers {
-            let userPrediction = answer.predictions.first(where: { $0.user_id == user_id })!.predictionValue
+            guard let userPrediction = answer.getUserPrediction(user_id: user_id) else {
+                return nil
+            }
             let actualScore = (Double(answer.currentVotes) / Double(self.totalVotes) * 100).rounded()
-            totalError += pow((userPrediction - actualScore), 2)
+            totalError += pow(((userPrediction * 100) - actualScore), 2)
         }
         return sqrt(totalError)
     }
     
-    func getFinalScoresSortedUserList() -> [String] {
-        var resultsDict = [String: Double]()
-        for (user_id, _) in self.userMap.asKeyValueSequence() {
+    func getFinalScoresSortedUserList() -> [(String, Double?)] {
+        var resultsDict = [String: Double?]()
+        for user_id in self.userMap.keys {
             resultsDict[user_id] = getUserFinalScore(user_id: user_id)
         }
-        return resultsDict.sorted { $0.1 < $1.1 }.map { $0.0 }
+        return resultsDict.sorted {
+            if let one = $0.1 {
+                if let two = $1.1 {
+                    return one < two
+                } else {
+                    return true
+                }
+            } else {
+                return false
+            }
+        }
     }
     
     var statusString: String {
@@ -110,8 +127,11 @@ class Answer: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var currentVotes: Int
     @Persisted var predictions: List<Prediction>
     
-    func getUserPrediction(user_id: String) -> Double {
-        self.predictions.first( where: { $0.user_id == user_id } )!.predictionValue
+    func getUserPrediction(user_id: String) -> Double? {
+        guard let prediction = self.predictions.first( where: { $0.user_id == user_id } ) else {
+            return nil
+        }
+        return prediction.predictionValue / Double(100)
     }
 }
 

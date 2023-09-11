@@ -9,30 +9,33 @@ import SwiftUI
 import RealmSwift
 
 struct FinalResultsView: View {
+//    @State var finalScores: Array<(String, Double)> //[(String, Double)]
     @ObservedRealmObject var survey: Survey
     @Binding var isPresentingFinalResultsView: Bool
+    
     var body: some View {
         VStack {
             List {
                 SurveyQuestionSection(survey: survey)
                 Section(header: Text("Error Scores (Lower is better)")) {
-                    ForEach(Array(survey.getFinalScoresSortedUserList().enumerated()), id: \.element) { index, user_id in
+                    ForEach(Array(survey.getFinalScoresSortedUserList().enumerated()), id: \.self.0) { index, tuple in
                         HStack {
-                            if survey.userMap[user_id] == "" {
-                                Text(StringUtils.getSubstringAtEnd(value: user_id))
+                            Text("\(index+1).")
+                            if survey.userMap[tuple.    0] == "" {
+                                Text(StringUtils.getSubstringAtEnd(value: tuple.0))
                             } else {
-                                Text("\(index+1). \(survey.userMap[user_id]!)")
+                                Text(survey.userMap[tuple.0]!)
                             }
-                            Text(user_id == app.currentUser!.id ? "(Me)" : "")
+                            Text(tuple.0 == app.currentUser!.id ? "(Me)" : "")
                             Spacer()
-                            Text(StringUtils.formatNumber(value: survey.getUserFinalScore(user_id: user_id)))
+                            Text(StringUtils.formatNumber(value: tuple.1!))
                         }
                         .listRowBackground(Color("ListItemColor"))
-                        .font(user_id == app.currentUser!.id ? Font.body.weight(.bold) : Font.body.weight(.regular))
+                        .font(tuple.0 == app.currentUser!.id ? Font.body.weight(.bold) : Font.body.weight(.regular))
                     }
                 }
             } // List
-            if app.currentUser!.id == survey.getFinalScoresSortedUserList()[0] {
+            if app.currentUser!.id == survey.getFinalScoresSortedUserList()[0].0 {
                 Text("You won!")
                     .font(.headline)
                 Image("pineapple-happy-alpha")

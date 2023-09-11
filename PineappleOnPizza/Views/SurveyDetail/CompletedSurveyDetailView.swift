@@ -32,7 +32,7 @@ struct CompletedSurveyDetailView: View {
                                 .listRowBackground(Color("ListItemColor"))
                                 // Show the user's prediction next to the results
                                 if survey.status == Status.completed {
-                                    ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id) / Double(100))
+                                    ProgressView(value: answer.getUserPrediction(user_id: app.currentUser!.id))
                                         .listRowBackground(Color("ListItemColor"))
                                 }
                             } else {

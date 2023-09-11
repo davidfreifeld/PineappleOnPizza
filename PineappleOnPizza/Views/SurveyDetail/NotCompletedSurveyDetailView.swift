@@ -41,7 +41,11 @@ struct NotCompletedSurveyDetailView: View {
             // Prediction button Section
             if survey.userHasPrediction {
                 Button(action: {
-                    isPresentingViewPredictionView = true
+                    if true /* no error */ {
+                        isPresentingViewPredictionView = true
+                    } else {
+                        
+                    }
                 }) {
                     HStack {
                         Spacer()
