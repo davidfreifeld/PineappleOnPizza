@@ -24,7 +24,7 @@ struct ViewPredictionView: View {
                             HStack {
                                 Text(answer.answerText)
                                 Spacer()
-                                Text("\(Int(userPrediction))%")
+                                Text("\(Int(userPrediction * 100))%")
                             }
                         }
                     } else {

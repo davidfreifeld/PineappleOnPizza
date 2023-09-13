@@ -27,29 +27,29 @@ struct SurveyDetailView: View {
         }
         .background(Color("MainBackgroundColor"))
         .navigationBarTitle("Survey")
-        .navigationBarItems(trailing:
-            HStack {
-                Button {
-                    showHelpMessage = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        self.showHelpMessage = false
-                    }
-                } label: {
-                    Image(systemName: "questionmark.circle")
+        .navigationBarItems(trailing: HStack {
+            Button {
+                showHelpMessage = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.showHelpMessage = false
                 }
+            } label: {
+                Image(systemName: "questionmark.circle")
+            }
+            if survey.status != Status.completed {
                 Button {
                     shareText("Join my Survey on PoP!\nSurvey Code: \(survey.code)")
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
-                Button {
-                    isPresentingOwnerActionsView = true
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-                .disabled(survey.owner_id != app.currentUser?.id)
             }
-        )
+            Button {
+                isPresentingOwnerActionsView = true
+            } label: {
+                Image(systemName: "gearshape")
+            }
+            .disabled(survey.owner_id != app.currentUser?.id)
+        })
         .sheet(isPresented: $isPresentingOwnerActionsView) {
             NavigationView {
                 OwnerActionsView(survey: survey, isPresentingOwnerActionsView: $isPresentingOwnerActionsView)
@@ -59,8 +59,10 @@ struct SurveyDetailView: View {
     
     func shareText(_ text: String) {
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-        
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.rootViewController?.present(activityViewController, animated: true, completion: nil)
     }
 }
 
