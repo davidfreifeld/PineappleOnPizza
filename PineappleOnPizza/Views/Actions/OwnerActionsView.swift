@@ -19,6 +19,7 @@ struct OwnerActionsView: View {
     @State var isPresentingConfirmUnopenView = false
     @State var isPresentingConfirmReopenView = false
     @State var isPresentingConfirmCompleteView = false
+    @State var isPresentingConfirmArchiveView = false
     
     var body: some View {
         VStack {
@@ -85,6 +86,21 @@ struct OwnerActionsView: View {
                 .foregroundColor(.white)
                 .clipShape(Capsule())
             }
+            // Archive the survey
+            Button(action: {
+                isPresentingConfirmArchiveView = true
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Archive Survey")
+                    Spacer()
+                }
+            }
+            .frame(width: 150, height: 40)
+            .background(.gray)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding(.top, 10)
             Spacer()
             PineappleMessageView(message: survey.statusString)
         } // VStack
@@ -123,6 +139,13 @@ struct OwnerActionsView: View {
             }
         } message: {
             Text("Are you sure you want to reopen the survey?")
+        }
+        .confirmationDialog("Are you sure?", isPresented: $isPresentingConfirmArchiveView) {
+            Button("Archive Survey") {
+                updateSurveyStatus(status: Status.archived)
+            }
+        } message: {
+            Text("Are you sure you want to archive the survey?")
         }
         .scrollContentBackground(.hidden)
         .background(Color("MainBackgroundColor"))

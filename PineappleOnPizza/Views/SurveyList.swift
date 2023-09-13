@@ -7,6 +7,7 @@ struct SurveyList: View {
     // Deleting objects from the observed collection
     // deletes them from the realm.
     @ObservedResults(Survey.self, where: { $0.userMap.keys.contains(app.currentUser!.id) }, sortDescriptor: SortDescriptor(keyPath: "_id", ascending: true)) var surveys
+    @Environment(\.realm) var realm
     
     var body: some View {
         List {
@@ -24,6 +25,12 @@ struct SurveyList: View {
                 ForEach(surveys.where { $0.status == Status.completed }) { survey in
                     SurveyRow(survey: survey)
                 }
+//                .onDelete { indices in
+//                    let thawedSurvey = surveys.where { $0.status == Status.completed }[indices.first!].thaw()
+//                    try! realm.write {
+//                        thawedSurvey!.status = Status.archived
+//                    }
+//                }
             }
         }
         .scrollContentBackground(.hidden)
