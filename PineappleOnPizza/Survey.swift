@@ -120,6 +120,15 @@ extension Survey {
         "minVotes": 2
     ] as [String: Any])
     
+    static let blank_survey = Survey(value: [
+        "owner_id": "abc123",
+        "questionText": "",
+        "answers": [],
+        "status": Status.new,
+        "code": "XYZ456",
+        "userMap": Map<String, String>(),
+        "minVotes": 0
+    ] as [String: Any])
 }
 
 class Answer: EmbeddedObject, ObjectKeyIdentifiable {
