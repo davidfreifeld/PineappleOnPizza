@@ -13,48 +13,55 @@ struct MainView: View {
     @EnvironmentObject var errorHandler: ErrorHandler
     
     @State var user: User
-    @State var isPresentingAddSurveyView = false
+    @State var isPresentingCreateSurveyView = false
+    @State var isPresentingJoinSurveyView = false
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack(spacing: 20) {
-                    NavigationLink {
-                        CreateSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView, user: user)
-                    } label: {
-                        Text("Create New\nSurvey")
+                    Button(action: {
+                        isPresentingCreateSurveyView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Create New\nSurvey")
+                            Spacer()
+                        }
                     }
-                        .frame(width: 150, height: 50)
-                        .background(Color("CompletedSurveyColor"))
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
+                    .frame(width: 150, height: 50)
+                    .background(Color("CompletedSurveyColor"))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
                     
-                    NavigationLink {
-                        JoinSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView)
-                    } label: {
-                        Text("Join Existing\nSurvey")
+                    Button(action: {
+                        isPresentingJoinSurveyView = true
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("Join Existing\nSurvey")
+                            Spacer()
+                        }
                     }
-                        .frame(width: 150, height: 50)
-                        .background(Color("CompletedSurveyColor"))
-                        .foregroundColor(.white)
-                        .clipShape(Capsule())
+                    .frame(width: 150, height: 50)
+                    .background(Color("CompletedSurveyColor"))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
                 }
                 SurveyList()
             }
             .scrollContentBackground(.hidden)
             .background(Color("MainBackgroundColor"))
             .navigationBarTitle("Surveys"/*, displayMode: .inline*/)
-            .navigationBarItems(leading:
-                Button {
-                    isPresentingAddSurveyView = true
-                } label: {
-                    Image(systemName: "plus.square.on.square") //note.text.badge.plus //plus //plus.app
-                },
-                                trailing: LogoutButton()
-            )
-            .sheet(isPresented: $isPresentingAddSurveyView) {
+            .navigationBarItems(trailing: LogoutButton())
+            .sheet(isPresented: $isPresentingCreateSurveyView) {
                 NavigationView {
-                    AddSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView, user: user)
+                    CreateSurveyView(isPresentingAddSurveyView: $isPresentingCreateSurveyView, user: user)
+                }
+            }
+            .sheet(isPresented: $isPresentingJoinSurveyView) {
+                NavigationView {
+                    JoinSurveyView(isPresentingAddSurveyView: $isPresentingJoinSurveyView)
                 }
             }
             .listStyle(InsetGroupedListStyle())

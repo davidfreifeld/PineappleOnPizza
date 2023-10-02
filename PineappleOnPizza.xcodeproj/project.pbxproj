@@ -13,7 +13,6 @@
 		00C781602AA94D45008CD67B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D3DF592942677E005209D9 /* Constants.swift */; };
 		00C781612AA94D45008CD67B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72F22A8D971B0064729E /* Status.swift */; };
 		00C781622AA94D45008CD67B /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C733A2A956FE30064729E /* StringUtils.swift */; };
-		00C781632AA94D49008CD67B /* AddSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0050011D2A97A634001343B9 /* AddSurveyView.swift */; };
 		00C781642AA94D49008CD67B /* CreateSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */; };
 		00C781652AA94D49008CD67B /* JoinSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72EA2A8B29900064729E /* JoinSurveyView.swift */; };
 		00C781662AA94D49008CD67B /* SetPredictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000C72E82A8ACD810064729E /* SetPredictionView.swift */; };
@@ -58,7 +57,6 @@
 		000C73362A8FF2670064729E /* FinalResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinalResultsView.swift; path = PineappleOnPizza/Views/SurveyDetail/FinalResultsView.swift; sourceTree = SOURCE_ROOT; };
 		000C73382A9451240064729E /* SurveyRowColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurveyRowColorView.swift; path = PineappleOnPizza/Views/Components/SurveyRowColorView.swift; sourceTree = SOURCE_ROOT; };
 		000C733A2A956FE30064729E /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = PineappleOnPizza/StringUtils.swift; sourceTree = SOURCE_ROOT; };
-		0050011D2A97A634001343B9 /* AddSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddSurveyView.swift; path = PineappleOnPizza/Views/Actions/AddSurveyView.swift; sourceTree = SOURCE_ROOT; };
 		0050011F2A9906D3001343B9 /* PineappleMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PineappleMessageView.swift; path = PineappleOnPizza/Views/Components/PineappleMessageView.swift; sourceTree = SOURCE_ROOT; };
 		00D058B82AA2AEC8006FE5E6 /* CompletedSurveyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompletedSurveyDetailView.swift; path = PineappleOnPizza/Views/SurveyDetail/CompletedSurveyDetailView.swift; sourceTree = SOURCE_ROOT; };
 		00D058BA2AA2AECA006FE5E6 /* NotCompletedSurveyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotCompletedSurveyDetailView.swift; path = PineappleOnPizza/Views/SurveyDetail/NotCompletedSurveyDetailView.swift; sourceTree = SOURCE_ROOT; };
@@ -124,7 +122,6 @@
 		00D058C32AA2AF69006FE5E6 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				0050011D2A97A634001343B9 /* AddSurveyView.swift */,
 				913D465F2770E94500ABE7D3 /* CreateSurveyView.swift */,
 				000C72EA2A8B29900064729E /* JoinSurveyView.swift */,
 				000C72E82A8ACD810064729E /* SetPredictionView.swift */,
@@ -298,7 +295,6 @@
 				00C7816B2AA94D4E008CD67B /* SurveyRow.swift in Sources */,
 				00C7816C2AA94D4E008CD67B /* SurveyRowColorView.swift in Sources */,
 				00C7816D2AA94D4E008CD67B /* PineappleMessageView.swift in Sources */,
-				00C781632AA94D49008CD67B /* AddSurveyView.swift in Sources */,
 				00C781642AA94D49008CD67B /* CreateSurveyView.swift in Sources */,
 				00C781652AA94D49008CD67B /* JoinSurveyView.swift in Sources */,
 				00C781662AA94D49008CD67B /* SetPredictionView.swift in Sources */,
