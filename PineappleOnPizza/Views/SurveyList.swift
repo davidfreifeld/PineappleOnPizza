@@ -11,12 +11,12 @@ struct SurveyList: View {
     
     var body: some View {
         List {
-            Section("New Surveys") {
+            Section("Surveys Accepting Predictions") {
                 ForEach(surveys.where { $0.status == Status.new }) { survey in
                     SurveyRow(survey: survey)
                 }
             }
-            Section("Open Surveys") {
+            Section("Surveys Accepting Responses") {
                 ForEach(surveys.where { $0.status == Status.open }) { survey in
                     SurveyRow(survey: survey)
                 }
@@ -33,7 +33,5 @@ struct SurveyList: View {
 //                }
             }
         }
-        .scrollContentBackground(.hidden)
-        .background(Color("MainBackgroundColor"))
     }
 }

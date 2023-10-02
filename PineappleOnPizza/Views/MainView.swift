@@ -17,7 +17,32 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            SurveyList()
+            VStack {
+                HStack(spacing: 20) {
+                    NavigationLink {
+                        CreateSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView, user: user)
+                    } label: {
+                        Text("Create New\nSurvey")
+                    }
+                        .frame(width: 150, height: 50)
+                        .background(Color("CompletedSurveyColor"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                    
+                    NavigationLink {
+                        JoinSurveyView(isPresentingAddSurveyView: $isPresentingAddSurveyView)
+                    } label: {
+                        Text("Join Existing\nSurvey")
+                    }
+                        .frame(width: 150, height: 50)
+                        .background(Color("CompletedSurveyColor"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
+                SurveyList()
+            }
+            .scrollContentBackground(.hidden)
+            .background(Color("MainBackgroundColor"))
             .navigationBarTitle("Surveys"/*, displayMode: .inline*/)
             .navigationBarItems(leading:
                 Button {
