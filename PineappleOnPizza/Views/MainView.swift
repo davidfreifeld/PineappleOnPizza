@@ -19,6 +19,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
                 HStack(spacing: 20) {
                     Button(action: {
                         isPresentingCreateSurveyView = true
@@ -47,7 +48,9 @@ struct MainView: View {
                     .background(Color("CompletedSurveyColor"))
                     .foregroundColor(.white)
                     .clipShape(Capsule())
-                }
+                } // HStack
+                .padding(.vertical, 20)
+                
                 SurveyList()
             }
             .scrollContentBackground(.hidden)
